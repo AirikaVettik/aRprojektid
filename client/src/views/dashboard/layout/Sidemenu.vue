@@ -7,7 +7,7 @@
           <img class="h-14 w-auto" src="/img/logo.png" alt="Workflow" />
         </div>
         <div class="flex-1 mt-6 w-full px-2 space-y-1">
-          <span v-for="item in sidebarNavigation" :key="item.name" @click="changeRoute(item.href)" :class="[item.current ? 'bg-teal-800 text-white' : 'text-teal-100 hover:bg-teal-800 hover:text-white', 'group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium']" :aria-current="item.current ? 'page' : undefined">
+          <span v-for="item in sidebarNavigation" :key="item.name" @click="changeRoute(item.href)" :class="[route.name === item.href ? 'bg-teal-800 text-white' : 'text-teal-100 hover:bg-teal-800 hover:text-white', 'group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium']" :aria-current="item.current ? 'page' : undefined">
             <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-teal-300 group-hover:text-white', 'h-6 w-6']" aria-hidden="true" />
             <span class="mt-2">{{ item.name }}</span>
           </span>
@@ -59,6 +59,7 @@
 <script>
 import { ref } from 'vue'
 import router from '../../../router'
+import { useRoute } from 'vue-router' 
 
 import {
   Dialog,
@@ -78,14 +79,13 @@ import {
 import { SearchIcon } from '@heroicons/vue/solid'
 
 const sidebarNavigation = [
-  { name: 'Töölaud', href: '#', icon: HomeIcon, current: false },
-  { name: 'Kliendid', href: '#', icon: ViewGridIcon, current: false },
-  { name: 'Projektid', href: '#', icon: PhotographIcon, current: true },
-  { name: 'Hinnapakkumised', href: '#', icon: UserGroupIcon, current: false },
-  { name: 'Kalender', href: 'Calendar', icon: CollectionIcon, current: false },
-  { name: 'Seaded', href: '#', icon: CogIcon, current: false },
+  { name: 'Töölaud', href: '#', icon: HomeIcon },
+  { name: 'Kliendid', href: '#', icon: ViewGridIcon },
+  { name: 'Projektid', href: '#', icon: PhotographIcon },
+  { name: 'Hinnapakkumised', href: 'Offer', icon: UserGroupIcon },
+  { name: 'Kalender', href: 'Calendar', icon: CollectionIcon },
+  { name: 'Seaded', href: '#', icon: CogIcon },
 ]
-
 
 export default {
   components: {
@@ -97,9 +97,10 @@ export default {
   },
   setup() {
     const mobileMenuOpen = ref(false)
+    const route = useRoute()
 
     function changeRoute (routeName) {
-        router.push({
+          router.push({
           name: routeName
         })
     }
@@ -108,6 +109,7 @@ export default {
       sidebarNavigation,
       mobileMenuOpen,
       changeRoute,
+      route,
     }
   },
 }

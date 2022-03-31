@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-      <img class="mx-auto h-16 lg:h-48 w-auto" src="/img/logo.png" alt="Workflow" />
+      <img class="mx-auto h-60 lg:h-48 w-auto" src="/img/logo.png" alt="Workflow" />
       <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Logi sisse</h2>
     </div>
 
@@ -34,7 +34,7 @@
           </div>
 
           <div>
-            <button @click="btnClick" type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal-500 hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Logi sisse</button>
+            <button @click="btnClick" type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal-800 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Logi sisse</button>
           </div>
         </div>
 

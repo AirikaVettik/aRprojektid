@@ -5,7 +5,7 @@
   <div class="sm:hidden">
     <label for="tabs" class="sr-only">Select a tab</label>
     <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
-    <select id="tabs" name="tabs" class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+    <select id="tabs" name="tabs" class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md pt-4">
       <option>Kõik</option>
 
       <option>Koostamisel</option>
@@ -17,11 +17,11 @@
     <div class="border-b border-gray-200">
       <nav class="-mb-px flex" aria-label="Tabs">
         <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
-        <a href="#" class="border-teal-500 text-teal-600 w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm" aria-current="page"> Kõik </a>
+        <a href="#" class="border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm" aria-current="page"> Kõik </a>
 
-        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm"> Koostamisel</a>
+        <a href="#" class="border-transparent text-gray-500 hover:text-teal-700 hover:border-gray-300 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm"> Koostamisel</a>
 
-        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/4 py-4 px-1 text-center border-b-2 font-medium text-sm"> Väljasaadetud</a>
+        <a href="#" class="border-transparent text-gray-500 hover:text-teal-700 hover:border-gray-300 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm"> Väljasaadetud</a>
 
       </nav>
     </div>
@@ -30,10 +30,9 @@
     <div class="sm:flex sm:items-center pt-4">
       <div class="sm:flex-auto">
         <h1 class="text-xl font-semibold text-gray-900">Hinnapakkumised</h1>
-        <p class="mt-2 text-sm text-gray-700">A list of all the users in your account including their name, title, email and role.</p>
       </div>
       <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-        <button type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Add user</button>
+        <button @click="btnClick" type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Lisa uus hinnapakkumine</button>
       </div>
     </div>
     <div class="mt-8 flex flex-col">
@@ -43,10 +42,10 @@
             <table class="min-w-full divide-y divide-gray-300">
               <thead class="bg-gray-50">
                 <tr>
-                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Name</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Title</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Status</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Role</th>
+                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Klient</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Projekt</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"></th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Staatus</th>
                   <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                     <span class="sr-only">Edit</span>
                   </th>
@@ -54,11 +53,8 @@
               </thead>
               <tbody class="divide-y divide-gray-200 bg-white">
                 <tr v-for="person in people" :key="person.email">
-                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+                  <td class="whitespace-nowrap py-4 pl-4 pr-2 text-sm sm:pl-6">
                     <div class="flex items-center">
-                      <div class="h-10 w-10 flex-shrink-0">
-                        <img class="h-10 w-10 rounded-full" :src="person.image" alt="" />
-                      </div>
                       <div class="ml-4">
                         <div class="font-medium text-gray-900">{{ person.name }}</div>
                         <div class="text-gray-500">{{ person.email }}</div>
@@ -70,12 +66,12 @@
                     <div class="text-gray-500">{{ person.department }}</div>
                   </td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                    <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Active</span>
+                    <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Hinnapakkumine</span>
                   </td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ person.role }}</td>
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                    <a href="#" class="text-indigo-600 hover:text-indigo-900"
-                      >Edit<span class="sr-only">, {{ person.name }}</span></a
+                    <a href="#" class="text-teal-900 hover:text-teal-600"
+                      >Muuda<span class="sr-only">, {{ person.name }}</span></a
                     >
                   </td>
                 </tr>
@@ -89,15 +85,22 @@
 </template>
 
 <script>
+import router from '../../../router'
+
 const people = [
   {
-    name: 'Lindsay Walton',
-    title: 'Front-end Developer',
-    department: 'Optimization',
-    email: 'lindsay.walton@example.com',
-    role: 'Member',
-    image:
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    name: 'aRfoto OÜ',
+    title: 'Uus koduleht domeenile www.airikavettik.ee',
+    department: 'koduleht',
+    email: 'airikavettik@gmail.com',
+    role: 'Koostamisel',
+  },
+    {
+    name: 'Estonian Business OÜ',
+    title: 'Uus e-pood domeenile www.eb.com',
+    department: 'e-pood',
+    email: 'eb@eb.com',
+    role: 'Väljasaadetud'
   },
   // More people...
 ]
@@ -107,6 +110,11 @@ export default {
     return {
       people,
     }
+  },
+  methods: {
+    btnClick: function(event) {
+      router.push('newOffer');
+    },
   },
 }
 </script>

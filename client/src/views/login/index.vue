@@ -34,7 +34,7 @@
           </div>
 
           <div>
-            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal-500 hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sign in</button>
+            <button @click="btnClick" type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal-500 hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sign in</button>
           </div>
         </div>
 
@@ -42,3 +42,15 @@
     </div>
   </div>
 </template>
+
+<script>
+import router from '../../router'
+
+export default {
+  methods: {
+    btnClick: function(event) {
+      router.push('dashboard');
+    },
+  },
+}
+</script>

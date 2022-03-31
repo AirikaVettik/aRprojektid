@@ -1,14 +1,14 @@
 <template>
 <div class="h-screen flex">
         <!-- Narrow sidebar -->
-    <div class="hidden w-28 bg-teal-700 overflow-y-auto md:block">
+    <div class="hidden w-36 bg-teal-700 overflow-y-auto md:block">
       <div class="w-full py-6 flex flex-col items-center">
         <div class="flex-shrink-0 flex items-center">
-          <img class="h-14 w-auto" src="/img/logo.png" alt="Workflow" />
+          <img class="h-32 w-auto" src="/img/logo.png" alt="Workflow" />
         </div>
         <div class="flex-1 mt-6 w-full px-2 space-y-1">
           <span v-for="item in sidebarNavigation" :key="item.name" @click="changeRoute(item.href)" :class="[route.name === item.href ? 'bg-teal-800 text-white' : 'text-teal-100 hover:bg-teal-800 hover:text-white', 'group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium']" :aria-current="item.current ? 'page' : undefined">
-            <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-teal-300 group-hover:text-white', 'h-6 w-6']" aria-hidden="true" />
+            <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-white-300 group-hover:text-white', 'h-10 w-10']" aria-hidden="true" />
             <span class="mt-2">{{ item.name }}</span>
           </span>
         </div>

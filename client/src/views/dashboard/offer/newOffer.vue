@@ -20,7 +20,7 @@
         <div class="sm:flex-auto">
         <h1 class="text-xl font-semibold text-gray-900">Projekti nimi:</h1>
         <div class="mt-1">
-            <input type="text" name="offer-title" id="offer-title" class="focus:ring-teal-500 focus:border-teal-500 flex-1 block w-1/2 rounded-none rounded-r-md sm:text-xl border-gray-300" placeholder="Uus e-pood domeenile www.raindesign.ee.">
+            <input type="text" name="offer-title" id="offer-title" class="focus:ring-teal-500 focus:border-teal-500 flex-1 block w-full rounded-none rounded-r-md sm:text-xl border-gray-300" placeholder="Uus e-pood domeenile www.raindesign.ee.">
         </div></div>
         <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
             <Listbox as="div" v-model="selected">

@@ -56,19 +56,18 @@
                   <td class="whitespace-nowrap py-4 pl-4 pr-2 text-sm sm:pl-6">
                     <div class="flex items-center">
                       <div class="ml-4">
-                        <div class="font-medium text-gray-900">{{ person.name }}</div>
-                        <div class="text-gray-500">{{ person.email }}</div>
+                        <div class="font-medium text-gray-900">{{ person.client }}</div>
+                        <div class="text-gray-500">{{ person.contact }}</div>
                       </div>
                     </div>
                   </td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                     <div class="text-gray-900">{{ person.title }}</div>
-                    <div class="text-gray-500">{{ person.department }}</div>
                   </td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                     <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Hinnapakkumine</span>
                   </td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ person.role }}</td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ person.status }}</td>
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                     <a href="#" class="text-teal-900 hover:text-teal-600"
                       >Muuda<span class="sr-only">, {{ person.name }}</span></a
@@ -89,18 +88,28 @@ import router from '../../../router'
 
 const people = [
   {
-    name: 'aRfoto OÜ',
+    client: 'aRfoto OÜ',
     title: 'Uus koduleht domeenile www.airikavettik.ee',
-    department: 'koduleht',
-    email: 'airikavettik@gmail.com',
-    role: 'Koostamisel',
+    contact: 'Airika Vettik',
+    status: 'Koostamisel',
   },
     {
-    name: 'Estonian Business OÜ',
+    client: 'Estonian Business OÜ',
     title: 'Uus e-pood domeenile www.eb.com',
-    department: 'e-pood',
-    email: 'eb@eb.com',
-    role: 'Väljasaadetud'
+    contact: 'Mihkel Tõrva',
+    status: 'Väljasaadetud'
+  },
+    {
+    client: 'Raindesign OÜ',
+    title: 'Uus e-pood domeenile www.raindesign.ee',
+    contact: 'Rain Tõrva',
+    status: 'Kinnitatud'
+  },
+    {
+    client: 'Janika OÜ',
+    title: 'Uus koduleht domeenile www.raindesign.ee',
+    contact: 'Janika Valga',
+    status: 'Tagasilükatud'
   },
   // More people...
 ]

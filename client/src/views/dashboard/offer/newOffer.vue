@@ -9,15 +9,19 @@
       <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
         <button @click="btnClick" type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 sm:w-auto">Tagasi</button>
       </div>
-    </div>
-    <div class="hidden sm:block" aria-hidden="true">
-        <div class="py-5">
-        <div class="border-t border-gray-200" />
         </div>
+        <div class="hidden sm:block" aria-hidden="true">
+            <div class="py-5">
+            <div class="border-t border-gray-200" />
+            </div>
     </div>
 
     <div class="sm:flex sm:items-center pt-4 pb-4">
-        <div class="sm:flex-auto"></div>
+        <div class="sm:flex-auto">
+        <h1 class="text-xl font-semibold text-gray-900">Projekti nimi:</h1>
+        <div class="mt-1">
+            <input type="text" name="offer-title" id="offer-title" class="focus:ring-teal-500 focus:border-teal-500 flex-1 block w-1/2 rounded-none rounded-r-md sm:text-xl border-gray-300" placeholder="Uus e-pood domeenile www.raindesign.ee.">
+        </div></div>
         <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
             <Listbox as="div" v-model="selected">
         <ListboxLabel class="sr-only"> Change published status </ListboxLabel>
@@ -105,6 +109,9 @@
                         <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"> http:// </span>
                         <input type="text" name="company-website" id="company-website" class="focus:ring-teal-500 focus:border-teal-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="www.raindesign.ee" />
                     </div>
+                        <div>
+                        <p class="mt-2 text-xs text-gray-500">Projektiga seotud domeen.</p>
+                        </div>
                     </div>
                 </div>
 

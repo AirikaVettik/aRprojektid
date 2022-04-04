@@ -3,8 +3,8 @@
         <!-- Narrow sidebar -->
     <div class="hidden w-36 bg-teal-700 overflow-y-auto md:block">
       <div class="w-full py-6 flex flex-col items-center">
-        <div class="flex-shrink-0 flex items-center">
-          <img class="h-32 w-auto" src="/img/logo.png" alt="Workflow" />
+        <div class="flex-shrink-0 flex items-center" >
+          <img class="h-32 w-auto" src="/img/logo.png" alt="Workflow"/>
         </div>
         <div class="flex-1 mt-6 w-full px-2 space-y-1">
           <span v-for="item in sidebarNavigation" :key="item.name" @click="changeRoute(item.href)" :class="[route.name === item.href ? 'bg-teal-800 text-white' : 'text-teal-100 hover:bg-teal-800 hover:text-white', 'group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium']" :aria-current="item.current ? 'page' : undefined">
@@ -79,9 +79,9 @@ import {
 import { SearchIcon } from '@heroicons/vue/solid'
 
 const sidebarNavigation = [
-  { name: 'Töölaud', href: '#', icon: HomeIcon },
+  { name: 'Töölaud', href: 'Dashboard', icon: HomeIcon },
   { name: 'Kliendid', href: 'Client', icon: ViewGridIcon },
-  { name: 'Projektid', href: '#', icon: PhotographIcon },
+  { name: 'Projektid', href: 'Project', icon: PhotographIcon },
   { name: 'Hinnapakkumised', href: 'Offer', icon: UserGroupIcon },
   { name: 'Kalender', href: 'Calendar', icon: CollectionIcon },
   { name: 'Seaded', href: '#', icon: CogIcon },

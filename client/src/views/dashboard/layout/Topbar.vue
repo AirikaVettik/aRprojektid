@@ -53,10 +53,12 @@ import {
   MenuItem,
   MenuItems,
 } from '@headlessui/vue'
+
 import {
   MenuAlt2Icon,
   PlusSmIcon,
 } from '@heroicons/vue/outline'
+
 import { SearchIcon } from '@heroicons/vue/solid'
 
 const userNavigation = [

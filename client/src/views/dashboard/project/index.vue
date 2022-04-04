@@ -28,7 +28,9 @@
       <div class="sm:flex-auto">
         <h1 class="text-xl font-semibold text-gray-900">Projektid</h1>
       </div>
-
+      <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+        <button @click="btnClick" type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Koosta uus</button>
+      </div>
     </div>
     <div class="mt-8 flex flex-col">
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -117,7 +119,7 @@ export default {
   },
   methods: {
     btnClick: function(event) {
-      router.push('newproject');
+      router.push('new');
     },
   },
 }

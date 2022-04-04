@@ -390,6 +390,10 @@
                 <p class="mt-2 text-sm text-gray-700">Projektiga saab alustada
                 <input type="s-working-weeks" name="s-working-weeks" id="price" class=" w-12 text-right shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-300 rounded-md" placeholder="16"/> töönädalal.</p>
             </div>
+            <div class="sm:flex-auto">
+                <p class="mt-2 text-sm text-gray-700">Hinnapakkumise koostas
+                <input type="s-working-weeks" name="s-working-weeks" id="price" class=" w-12 text-right shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-300 rounded-md" placeholder="Airika"/>.</p>
+            </div>
             <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
                 <button type="button" name="save" class="inline-flex items-center justify-center rounded-md border border-transparent bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 sm:w-auto">Salvesta</button>
             </div>

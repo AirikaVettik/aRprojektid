@@ -15,7 +15,7 @@
         </main>
 
         <!-- Secondary column (hidden on smaller screens) -->
-        <aside class="hidden w-96 bg-white border-l border-gray-200 overflow-y-auto lg:block">
+        <aside class="hidden w-1/4 bg-white border-l border-gray-200 overflow-y-auto lg:block">
           <Todolist />
         </aside>
 

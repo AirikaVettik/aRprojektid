@@ -6,7 +6,7 @@
       <div class="sm:flex-auto">
         <h1 class="text-xl font-semibold text-gray-900 uppercase">Koosta uus projekt</h1>
         <div>
-        <p class="mt-2 text-sl text-gray-500">Projektiga seotud domeen.</p>
+        <p class="mt-2 text-sl text-gray-500">...</p>
         </div>
       </div>
     </div>

@@ -42,18 +42,23 @@
             <table class="min-w-full divide-y divide-gray-300">
               <thead class="bg-gray-50">
                 <tr>
-                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Klient</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Projekt</th>
                   <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"></th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:pl-6">Klient</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Projekt</th>
                   <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Staatus</th>
-                  <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                    <span class="sr-only">Edit</span>
-                  </th>
+                  <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Vaata</span></th>
+                  <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Edit</span></th>
+                  <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Download</span></th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-200 bg-white">
                 <tr v-for="person in people" :key="person.email">
-                  <td class="whitespace-nowrap py-4 pl-4 pr-2 text-sm sm:pl-6">
+
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                    <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Hinnapakkumine</span>
+                  </td>
+
+                  <td class="whitespace-nowrap py-4 pl-2 pr-2 text-sm sm:pl-2">
                     <div class="flex items-center">
                       <div class="ml-4">
                         <div class="font-medium text-gray-900">{{ person.client }}</div>
@@ -61,18 +66,25 @@
                       </div>
                     </div>
                   </td>
+
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                     <div class="text-gray-900">{{ person.title }}</div>
                   </td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                    <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Hinnapakkumine</span>
-                  </td>
+
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ person.status }}</td>
-                  <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                    <a href="#" class="text-teal-900 hover:text-teal-600"
-                      >Muuda<span class="sr-only">, {{ person.name }}</span></a
-                    >
+
+                  <td class="relative whitespace-nowrap text-center px-2">
+                    <button><EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
                   </td>
+
+                  <td class="relative whitespace-nowrap text-center">
+                    <button><PencilIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
+                  </td>
+
+                  <td class="relative whitespace-nowrap text-center px-2">
+                  <button><DocumentDownloadIcon class="flex-shrink-0 h-7 w-7 text-gray-400" aria-hidden="true" /></button>
+                  </td>
+                  
                 </tr>
               </tbody>
             </table>
@@ -83,8 +95,10 @@
   </div>
 </template>
 
+
 <script>
 import router from '../../../router'
+import { PencilIcon, DocumentDownloadIcon, EyeIcon } from '@heroicons/vue/solid'
 
 const people = [
   {
@@ -115,6 +129,11 @@ const people = [
 ]
 
 export default {
+  components: {
+    PencilIcon,
+    DocumentDownloadIcon,
+    EyeIcon
+  },
   setup() {
     return {
       people,

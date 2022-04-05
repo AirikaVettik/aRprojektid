@@ -16,7 +16,7 @@
 
         <!-- Secondary column (hidden on smaller screens) -->
         <aside class="hidden w-96 bg-white border-l border-gray-200 overflow-y-auto lg:block">
-          <!-- Your content -->
+          <Todolist />
         </aside>
 
       </div>
@@ -27,11 +27,13 @@
 <script>
 import Sidemenu from './layout/Sidemenu.vue'
 import Topbar from './layout/Topbar.vue'
+import Todolist from './layout/Todolist.vue'
 
 export default {
   components: {
     Sidemenu,
     Topbar,
+    Todolist
   },
   setup() {
     

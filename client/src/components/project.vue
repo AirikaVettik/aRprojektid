@@ -103,15 +103,14 @@
                                     {{ position.title }}
                                 </p>
                                 <div class="ml-2 flex-shrink-0 flex">
-                                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                    {{ position.type }}
+                                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full text-green-800">
+                                    <button><XIcon class="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" /></button>
                                     </p>
                                 </div>
                                 </div>
                                 <div class="mt-2 sm:flex sm:justify-between">
                                 <div class="sm:flex">
-                                    <p class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
-                                    <LocationMarkerIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                                    <p class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-2">
                                     {{ position.info}}
                                     </p>
                                 </div>
@@ -166,6 +165,7 @@
                                     <table class="min-w-full divide-y divide-gray-300">
                                     <thead class="bg-gray-50">
                                         <tr class="divide-x divide-gray-200">
+                                        <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-6"></th>
                                         <th scope="col" class="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 sm:pl-4">Projekti etapp</th>
                                         <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-6">Planeeritud algus</th>
                                         <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-6">Planeeritud lõpp</th>
@@ -176,6 +176,10 @@
                                     <tbody class="divide-y divide-gray-200 bg-white">
 
                                         <tr v-for="person in people" :key="person.name" class="divide-x divide-gray-200">
+
+                                        <td class="py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
+                                        <input id="done" aria-describedby="comments-description" name="done" type="checkbox" class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded" />
+                                        </td>
                                         
                                         <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
                                         <input type="text" name="step" id="step" class="w-full text-left focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="Kujundus"/>
@@ -189,8 +193,8 @@
                                         <input type="date" name="plan-price" id="plan-price" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="60.00"/>
                                         </td>
 
-                                        <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <a href="#" class="text-teal-900 hover:text-teal-600">Muuda<span class="sr-only">, {{ person.name }}</span></a>
+                                        <td class="relative whitespace-nowrap text-center">
+                                        <button><XIcon class="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" /></button>
                                         </td>
 
                                         </tr>
@@ -275,8 +279,8 @@
                                         <input type="number" name="profit" id="profit" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="40.00"/>
                                         </td>
 
-                                        <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <a href="#" class="text-teal-900 hover:text-teal-600">Kustuta<span class="sr-only">, {{ person.name }}</span></a>
+                                        <td class="relative whitespace-nowrap text-center">
+                                        <button><XIcon class="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" /></button>
                                         </td>
 
                                         </tr>
@@ -285,16 +289,16 @@
                                 </div>
                                 <table class="min-w-full divide-y divide-gray-300">
                                 <tfoot>
-                                <div class="py-2 mr-10 ml-auto mt-5 w-full sm:w-2/4 lg:w-1/4">
+                                <div class="py-10 pr-5 ml-auto w-full lg:w-2/4">
                                     <div class="flex justify-between mb-5">
                                         <div class="text-gray-800 text-right flex-1">Projekti maksumus</div>
-                                        <div class="text-right w-20">
+                                        <div class="text-right w-40">
                                             <div class="text-gray-800 font-medium">3400 €</div>
                                         </div>
                                     </div>
-                                    <div class="flex justify-between mb-4">
+                                    <div class="flex justify-between mb-5">
                                         <div class="text-sm text-gray-600 text-right flex-1">Projekti omahind</div>
-                                        <div class="text-right w-20">
+                                        <div class="text-right w-40">
                                             <div class="text-sm text-gray-600">2400 €</div>
                                         </div>
                                     </div>
@@ -302,7 +306,7 @@
                                     <div class="py-2 border-t border-b">
                                         <div class="flex justify-between">
                                             <div class="text-xl text-gray-900 text-right flex-1 uppercase ">Projekti kasum</div>
-                                            <div class="text-right w-20">
+                                            <div class="text-right w-40">
                                                 <div class="text-xl text-gray-800 font-bold">1000 €</div>
                                             </div>
                                         </div>
@@ -328,7 +332,7 @@
         </div>
     </div>
 
-        <!-- Maksegraafik -->
+    <!-- Moodulid -->
     <div>
         <div class="mt-5 md:mt-0 md:col-span-4">
             <form action="#" method="POST">
@@ -366,16 +370,16 @@
                                         <input type="date" name="plan-hour" id="plan-hour" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="e"/>
                                         </td>
 
-                                        <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
+                                        <td class="py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
                                         <input type="text" name="step" id="step" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="Ettemaks 50%"/>
                                         </td>
 
-                                        <td class="w-1/6 py-2 px-2 text-right text-sm text-gray-500 sm:table-cell">
+                                        <td class="py-2 px-2 text-right text-sm text-gray-500 sm:table-cell">
                                         <input type="number" name="profit" id="profit" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="40.00"/>
                                         </td>
 
-                                        <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <a href="#" class="text-teal-900 hover:text-teal-600">Muuda<span class="sr-only">, {{ person.name }}</span></a>
+                                        <td class="relative whitespace-nowrap text-center">
+                                            <button><XIcon class="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" /></button>
                                         </td>
 
                                         </tr>
@@ -385,10 +389,10 @@
                                 </div>
                                 <table class="min-w-full divide-y divide-gray-300">
                                 <tfoot>
-                                <div class="py-2 mr-10 ml-auto mt-5 w-full sm:w-2/4 lg:w-1/4">
+                                <div class="py-10 pr-5 ml-auto w-full lg:w-2/4">
                                     <div class="flex justify-between mb-5">
                                         <div class="text-gray-800 text-right flex-1">Kokku</div>
-                                        <div class="text-right w-20">
+                                        <div class="text-right w-40">
                                             <div class="text-gray-800 font-medium">3400 €</div>
                                         </div>
                                     </div>
@@ -436,6 +440,7 @@
                                     <table class="min-w-full divide-y divide-gray-300">
                                     <thead class="bg-gray-50">
                                         <tr class="divide-x divide-gray-200">
+                                        <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-6"></th>
                                         <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pl-4">Kuupäev</th>
                                         <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-6">Maksenimi</th>
                                         <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-6">Summa</th>
@@ -448,7 +453,11 @@
                                         <tr v-for="person in people" :key="person.name" class="divide-x divide-gray-200">
 
                                         <td class="py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                        <input type="date" name="plan-hour" id="plan-hour" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="e"/>
+                                        <input id="comments" aria-describedby="comments-description" name="comments" type="checkbox" class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded" />
+                                        </td>
+
+                                        <td class="py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
+                                        <input type="date" name="plan-hour" id="plan-hour" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200"/>
                                         </td>
 
                                         <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
@@ -459,8 +468,8 @@
                                         <input type="number" name="profit" id="profit" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="40.00"/>
                                         </td>
 
-                                        <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <a href="#" class="text-teal-900 hover:text-teal-600">Muuda<span class="sr-only">, {{ person.name }}</span></a>
+                                        <td class="relative whitespace-nowrap text-center text-sm font-medium">
+                                        <button><MailIcon class="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" /></button>
                                         </td>
 
                                         </tr>
@@ -470,10 +479,10 @@
                                 </div>
                                 <table class="min-w-full divide-y divide-gray-300">
                                 <tfoot>
-                                <div class="py-2 mr-10 ml-auto mt-5 w-full sm:w-2/4 lg:w-1/4">
+                                <div class="py-10 pr-5 ml-auto w-full lg:w-2/4">
                                     <div class="flex justify-between mb-5">
-                                        <div class="text-gray-800 text-right flex-1">Kokku</div>
-                                        <div class="text-right w-20">
+                                        <div class="text-gray-800 text-right flex-1">Projekti maksumus</div>
+                                        <div class="text-right w-40">
                                             <div class="text-gray-800 font-medium">3400 €</div>
                                         </div>
                                     </div>
@@ -498,13 +507,14 @@
         </div>
     </div>
 
+
 </template>
 
 <script>
 import { ref } from 'vue'
 import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue'
-import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/solid'
-import { CalendarIcon} from '@heroicons/vue/solid'
+import { CheckIcon, ChevronDownIcon, MailIcon, CalendarIcon, XIcon } from '@heroicons/vue/solid'
+
 
 const publishingOptions = [
   { title: 'Kliendilt sisend', description: 'Hinnapakkumine on heakskiidetud ja võetakse töösse', current: false },
@@ -564,7 +574,9 @@ export default {
     ListboxOptions,
     CheckIcon,
     ChevronDownIcon,
-    CalendarIcon
+    CalendarIcon,
+    MailIcon,
+    XIcon
   },
   setup() {
     const selected = ref(publishingOptions[0])

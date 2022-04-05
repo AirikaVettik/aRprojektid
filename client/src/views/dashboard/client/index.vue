@@ -94,43 +94,47 @@
             <table class="min-w-full divide-y divide-gray-300">
               <thead class="bg-gray-50">
                 <tr>
-                  <th scope="col" class="ppx-3 py-3.5 text-right text-sm font-semibold text-gray-900">Klient</th>
+                  <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900">Klient</th>
                   <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900">E-mail</th>
                   <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900">Kontaktisik</th>
-                  <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900">Domeenid</th>
-                  <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                    <span class="sr-only">Vaata</span>
-                  </th>
-                  <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                    <span class="sr-only">Muuda</span>
-                  </th>
+                  <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900">Domeen</th>
+                  <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Vaata</span></th>
+                  <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Muuda</span></th>
                 </tr>
 
               </thead>
               <tbody class="text-right divide-y divide-gray-200 bg-white">
               
                 <tr v-for="person in people" :key="person.email">
+
                   <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
                     <div class="font-medium text-gray-900">{{ person.client }}</div>
                     <div class="font-medium text-gray-500">{{ person.id }}</div>
                   </td>
+
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                     <div class="text-gray-900">{{ person.email }}</div>
                   </td>
+
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                     <div class="text-gray-900">{{ person.contactName }}</div>
                     <div class="text-gray-500">{{ person.contactEmail }}</div>
                     <div class="text-gray-500">{{ person.contactPhone }}</div>
                   </td>
+
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                   <div class="text-gray-900">{{ person.domain }}</div>
                   </td>
-                  <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                    <a href="#" class="text-teal-900 hover:text-teal-600">Vaata<span class="sr-only">, {{ person.id }}</span></a>
+
+
+                  <td class="relative whitespace-nowrap text-center">
+                    <button><EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
                   </td>
-                  <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                    <a href="#" class="text-teal-900 hover:text-teal-600">Muuda<span class="sr-only">, {{ person.id }}</span></a>
+
+                  <td class="relative whitespace-nowrap text-center pr-2">
+                    <button><PencilIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
                   </td>
+                  
                 </tr>
               </tbody>
             </table>
@@ -144,9 +148,11 @@
 </template>
 
 <script>
+import { PencilIcon, EyeIcon } from '@heroicons/vue/solid'
+
 const people = [
   {
-    client: 'arfoto OÜ',
+    client: 'aRfoto OÜ',
     id: '12833038',
     email: 'info@airikavettik.ee',
     contactEmail: 'airika@airikavettik.ee',
@@ -154,10 +160,23 @@ const people = [
     contactName: 'Airika Vettik',
     domain: 'www.airikavettik.ee',
   },
-  // More people...
+   {
+    client: 'Estonian Business OÜ',
+    id: '13420045',
+    email: 'eb@eb.ee',
+    contactEmail: 'mihkel@airikavettik.ee',
+    contactPhone: '+372 58071815',
+    contactName: 'Mihkel Tõrva',
+    domain: 'www.eb.ee',
+  },
+  
 ]
 
 export default {
+  components: {
+    PencilIcon,
+    EyeIcon
+  },
   setup() {
     return {
       people,

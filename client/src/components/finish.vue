@@ -35,7 +35,7 @@
 
                                         <tr v-for="person in people" :key="person.name" class="divide-x divide-gray-200">
                                         
-                                        <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
+                                        <td class="py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
                                         <input type="text" name="step" id="step" class="w-full text-left focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="Tõlkeplugin"/>
                                         </td>
 
@@ -43,12 +43,12 @@
                                         <input type="date" name="plan-hour" id="plan-hour" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="e"/>
                                         </td>
 
-                                        <td class=" py-2 px-2 text-right text-sm text-gray-500 sm:table-cell">
+                                        <td class="py-2 px-2 text-right text-sm text-gray-500 sm:table-cell">
                                         <input type="date" name="plan-price" id="plan-price" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="60.00"/>
                                         </td>
 
-                                        <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <a href="#" class="text-teal-900 hover:text-teal-600">Muuda<span class="sr-only">, {{ person.name }}</span></a>
+                                        <td class="relative whitespace-nowrap text-center">
+                                        <button><XIcon class="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" /></button>
                                         </td>
 
                                         </tr>
@@ -100,7 +100,6 @@
                                         <th scope="col" class="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 sm:pl-4"></th>
                                         <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-6">Algus</th>
                                         <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-6">Lõpp</th>
-                                        <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-6"></th>
                                         </tr>
                                     </thead>
                                     
@@ -118,10 +117,6 @@
 
                                         <td class=" py-2 px-2 text-right text-sm text-gray-500 sm:table-cell">
                                         <input type="date" name="plan-price" id="plan-price" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="60.00"/>
-                                        </td>
-
-                                        <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <a href="#" class="text-teal-900 hover:text-teal-600">Muuda<span class="sr-only">, {{ guarantee.name }}</span></a>
                                         </td>
 
                                         </tr>
@@ -215,8 +210,7 @@
 <script>
 import { ref } from 'vue'
 import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue'
-import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/solid'
-import { CalendarIcon} from '@heroicons/vue/solid'
+import { CheckIcon, ChevronDownIcon, CalendarIcon, XIcon } from '@heroicons/vue/solid'
 
 
 const people = [
@@ -243,7 +237,8 @@ export default {
     ListboxOptions,
     CheckIcon,
     ChevronDownIcon,
-    CalendarIcon
+    CalendarIcon,
+    XIcon
   },
   setup() {
 

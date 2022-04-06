@@ -91,7 +91,8 @@
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
           <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
-            <table class="min-w-full divide-y divide-gray-300">
+            <div v-if="loading">Loading...</div>
+            <table v-else class="min-w-full divide-y divide-gray-300">
               <thead class="bg-gray-50">
                 <tr>
                   <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900">Klient</th>
@@ -104,28 +105,27 @@
 
               </thead>
               <tbody class="text-right divide-y divide-gray-200 bg-white">
-              
-                <tr v-for="person in people" :key="person.email">
+
+                <tr v-for="(partner, partnerIndex) in partners" :key="partnerIndex">
 
                   <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
-                    <div class="font-medium text-gray-900">{{ person.client }}</div>
-                    <div class="font-medium text-gray-500">{{ person.id }}</div>
+                    <div class="font-medium text-gray-900">{{ partner.name }}</div>
+                    <div class="font-medium text-gray-500">{{ partner.regcode }}</div>
                   </td>
 
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                    <div class="text-gray-900">{{ person.email }}</div>
+                    <div class="text-gray-900">{{ partner.email }}</div>
                   </td>
 
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                    <div class="text-gray-900">{{ person.contactName }}</div>
-                    <div class="text-gray-500">{{ person.contactEmail }}</div>
-                    <div class="text-gray-500">{{ person.contactPhone }}</div>
+                    <div class="text-gray-900">{{ partner.contact[0].name }}</div>
+                    <div class="text-gray-500">{{ partner.contact[0].email }}</div>
+                    <div class="text-gray-500">{{ partner.contact[0].phone }}</div>
                   </td>
 
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  <div class="text-gray-900">{{ person.domain }}</div>
+                  <div class="text-gray-900">{{ partner.domain }}</div>
                   </td>
-
 
                   <td class="relative whitespace-nowrap text-center">
                     <button><EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
@@ -148,7 +148,9 @@
 </template>
 
 <script>
+import { ref } from 'vue' 
 import { PencilIcon, EyeIcon } from '@heroicons/vue/solid'
+import { getParners } from '../../../api/partners.js'
 
 const people = [
   {
@@ -169,17 +171,29 @@ const people = [
     contactName: 'Mihkel Tõrva',
     domain: 'www.eb.ee',
   },
-  
 ]
 
 export default {
   components: {
     PencilIcon,
-    EyeIcon
+    EyeIcon,
   },
+
   setup() {
+    const loading = ref(false)
+
+    const partners = ref([])
+    async function allPartners() {
+      loading.value = true
+      partners.value = await getParners()
+      loading.value = false
+    }
+    allPartners()
+
     return {
       people,
+      partners,
+      loading
     }
   },
 }

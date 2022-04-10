@@ -81,8 +81,8 @@ import { SearchIcon } from '@heroicons/vue/solid'
 const sidebarNavigation = [
   { name: 'Töölaud', href: 'Dashboard', icon: HomeIcon },
   { name: 'Kliendid', href: 'Client', icon: ViewGridIcon },
-  { name: 'Projektid', href: 'Project', icon: PhotographIcon },
   { name: 'Hinnapakkumised', href: 'Offer', icon: UserGroupIcon },
+  { name: 'Projektid', href: 'Project', icon: PhotographIcon },
   { name: 'Kalender', href: 'Calendar', icon: CollectionIcon },
   { name: 'Seaded', href: '#', icon: CogIcon },
 ]

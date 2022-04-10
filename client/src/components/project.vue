@@ -2,6 +2,19 @@
     <div class="sm:flex sm:place-items-end pt-4 pb-4">
             <div class="sm:flex-auto">
                   <div>
+                       <div>
+    <fieldset class="mt-4">
+      <legend class="sr-only">Notification method</legend>
+      <div class="space-y-4 pb-10 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
+        <div v-for="notificationMethod in notificationMethods" :key="notificationMethod.id" class="flex items-center">
+          <input :id="notificationMethod.id" name="notification-method" type="radio" :checked="notificationMethod.id === 'offer'" class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300" />
+          <label :for="notificationMethod.id" class="ml-3 block text-sm font-medium text-gray-700">
+            {{ notificationMethod.title }}
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
                        <div class="grid grid-cols-2 gap-6">
                             <div>
                                 <!-- Projektijuht -->
@@ -565,6 +578,11 @@ const positions = [
   },
 ]
 
+const notificationMethods = [
+  { id: 'offer', title: 'Hinnapakkumine' },
+  { id: 'project', title: 'Projekt' },
+]
+
 export default {
     components: {
     Listbox,
@@ -585,7 +603,8 @@ export default {
       publishingOptions,
       selected,
       people,
-      positions
+      positions,
+      notificationMethods
     }
   },
 }

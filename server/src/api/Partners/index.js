@@ -17,7 +17,7 @@ router.get('/get-partners', (request, response) => {
         },
         {
             name: 'EB OÜ',
-            regcode: '12838033',
+            regcode: '12223333',
             email: 'info@av.ee',
             domain: 'www.airikavettik.ee',
             contact: [{
@@ -28,7 +28,7 @@ router.get('/get-partners', (request, response) => {
         },
         {
             name: 'EB OÜ',
-            regcode: '12838033',
+            regcode: '19910209',
             email: 'info@av.ee',
             domain: 'www.airikavettik.ee',
             contact: [{
@@ -52,7 +52,17 @@ router.get('/get-partner', (request, response) => {
                 email: 'airika@av.ee',
                 phone: '59194429'
             }],
-            projects: []
+            offers: [{
+                status: 'Koostamisel',
+                title: 'Uus koduleht domeenile www.airikavettik.ee'
+            },
+            {
+                status: 'Koostamisel',
+                title: 'Uus koduleht domeenile www.airikavettik.ee'
+            }],
+            projects: [{
+                title: 'Uus e-pood domeenile www.airikavettik.ee'
+            }]
         },
     )
 })

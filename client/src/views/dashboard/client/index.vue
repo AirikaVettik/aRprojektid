@@ -127,12 +127,19 @@
                   <div class="text-gray-900">{{ partner.domain }}</div>
                   </td>
 
+                  
                   <td class="relative whitespace-nowrap text-center">
-                    <button><EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
+                  <div>
+                    <button @click="showClient">
+                    <EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
+                    </button>
+                  </div>
                   </td>
 
                   <td class="relative whitespace-nowrap text-center pr-2">
-                    <button><PencilIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
+                    <button>
+                    <PencilIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
+                    </button>
                   </td>
                   
                 </tr>
@@ -144,13 +151,15 @@
     </div>
   </div>
     </div>
+    <Viewclient v-if="displayclient"  @close="closeClient"/>
   </div>
 </template>
 
 <script>
 import { ref } from 'vue' 
 import { PencilIcon, EyeIcon } from '@heroicons/vue/solid'
-import { getParners } from '../../../api/partners.js'
+import Viewclient from '../../../components/viewclient.vue'
+import { getPartners, getPartner } from '../../../api/partners.js'
 
 const people = [
   {
@@ -177,7 +186,24 @@ export default {
   components: {
     PencilIcon,
     EyeIcon,
+    Viewclient
   },
+
+  data() {
+    return { 
+      displayclient: false
+    }
+  },
+
+  methods: {
+    showClient() {
+      this.displayclient = true
+    },
+    closeClient() {
+      this.displayclient = false
+    }
+  },
+
 
   setup() {
     const loading = ref(false)
@@ -185,15 +211,21 @@ export default {
     const partners = ref([])
     async function allPartners() {
       loading.value = true
-      partners.value = await getParners()
+      partners.value = await getPartners()
       loading.value = false
     }
     allPartners()
 
+    const partner = ref([])
+    async function onePartner() {
+      partner.value = await getPartner()
+    }
+    onePartner()
+    
     return {
-      people,
       partners,
-      loading
+      partner,
+      loading,
     }
   },
 }

@@ -4,12 +4,13 @@
 <div class="px-4 sm:px-6 lg:px-8 mt-10">
     <div class="sm:flex sm:items-center pt-4 pb-4">
       <div class="sm:flex-auto">
-        <h1 class="text-xl font-semibold text-gray-900 uppercase">Koosta uus projekt</h1>
+        <h1 class="text-xl font-semibold text-gray-900 uppercase">Koosta uus</h1>
         <div>
         <p class="mt-2 text-sl text-gray-500">...</p>
         </div>
       </div>
     </div>
+
    <div class="flex flex-wrap">
     <div class="w-full">
       <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">

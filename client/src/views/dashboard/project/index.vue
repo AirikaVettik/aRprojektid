@@ -77,7 +77,8 @@
                   </td>
 
                   <td class="relative whitespace-nowrap text-center">
-                    <button><EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
+                    <button @click="showProject">
+                    <EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
                   </td>
 
                   <td class="relative whitespace-nowrap text-center px-2">
@@ -91,6 +92,7 @@
         </div>
       </div>
     </div>
+    <Viewp v-if="displayproject"  @close="closeProject"/>
   </div>
 </template>
 
@@ -99,6 +101,7 @@ import { ref } from 'vue'
 import router from '../../../router'
 import { PencilIcon, EyeIcon } from '@heroicons/vue/solid'
 import { getProjects } from '../../../api/projects.js'
+import Viewp from '../../../components/viewp.vue'
 
 const people = [
   {
@@ -135,8 +138,29 @@ const people = [
 export default {
   components: {
     PencilIcon,
-    EyeIcon
+    EyeIcon,
+    Viewp
   },
+
+  data() {
+    return { 
+      displayproject: false
+    }
+  },
+
+  methods: {
+    btnClick: function(event) {
+      router.push('new');
+    },
+    showProject(partner) {
+      console.log(partner)
+      this.displayproject = true
+    },
+    closeProject() {
+      this.displayproject = false
+    }
+  },
+
   setup() {
     const loading = ref(false)
 
@@ -153,11 +177,6 @@ export default {
       projects,
       loading
     }
-  },
-  methods: {
-    btnClick: function(event) {
-      router.push('new');
-    },
   },
 }
 </script>

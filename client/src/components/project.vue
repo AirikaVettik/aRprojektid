@@ -315,6 +315,13 @@
                                             <div class="text-sm text-gray-600">2400 €</div>
                                         </div>
                                     </div>
+
+                                    <div class="flex justify-between mb-5">
+                                        <div class="text-sm text-gray-600 text-right flex-1">Pluginad</div>
+                                        <div class="text-right w-40">
+                                            <div class="text-sm text-gray-600">200 €</div>
+                                        </div>
+                                    </div>
                                 
                                     <div class="py-2 border-t border-b">
                                         <div class="flex justify-between">

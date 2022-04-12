@@ -130,7 +130,7 @@
                   
                   <td class="relative whitespace-nowrap text-center">
                   <div>
-                    <button @click="showClient">
+                    <button @click="showClient(partner)">
                     <EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
                     </button>
                   </div>
@@ -196,7 +196,7 @@ export default {
   },
 
   methods: {
-    showClient() {
+    showClient(partner) {
       this.displayclient = true
     },
     closeClient() {

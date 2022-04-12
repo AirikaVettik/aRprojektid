@@ -7,3 +7,11 @@ export async function getOffers() {
     })
     return result.data
 }
+
+export async function getOffer() {
+    const result = await axios({
+        url: '/api/offer/get-offer',
+        method: 'GET'
+    })
+    return result.data
+}

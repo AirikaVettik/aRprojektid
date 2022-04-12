@@ -1,11 +1,21 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
   <div class="px-4 sm:px-6 lg:px-8">
+      <div class="mt-4 sm:mt-5 text-right sm:flex-none">
+        <button @click="btnClick" type="button" class="inline-flex justify-center rounded-md border border-transparent bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Koosta uus</button>
+      </div>
+
+   <div class="sm:flex sm:items-center pt-4">
+      <div class="sm:flex-auto">
+        <h1 class=" pt-1 text-xl text-center font-semibold text-gray-900 uppercase">Hinnapakkumised</h1>
+      </div>
+    </div>
       <div>
-  <div class="sm:hidden">
-    <label for="tabs" class="sr-only">Select a tab</label>
+
+  <div class="sm:hidden pt-10">
+    <label for="tabs" class="sr-only">Valik</label>
     <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
-    <select id="tabs" name="tabs" class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md pt-4">
+    <select id="tabs" name="tabs" class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md pt-2">
       <option>Kõik</option>
 
       <option>Koostamisel</option>
@@ -15,7 +25,7 @@
   </div>
   <div class="hidden sm:block">
     <div class="border-b border-gray-200">
-      <nav class="-mb-px flex" aria-label="Tabs">
+      <nav class="-mb-px-3 flex pt-10 uppercase" aria-label="Tabs">
         <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
         <a href="#" class="border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm" aria-current="page"> Kõik </a>
 
@@ -27,14 +37,6 @@
     </div>
   </div>
 </div>
-    <div class="sm:flex sm:items-center pt-4">
-      <div class="sm:flex-auto">
-        <h1 class="text-xl font-semibold text-gray-900">Hinnapakkumised</h1>
-      </div>
-      <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-        <button @click="btnClick" type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Koosta uus</button>
-      </div>
-    </div>
     <div class="mt-8 flex flex-col">
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -79,7 +81,9 @@
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ offer.status }}</td>
 
                   <td class="relative whitespace-nowrap text-center px-2">
-                    <button><EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
+                    <button @click="showOffer">
+                    <EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
+                    </button>
                   </td>
 
                   <td class="relative whitespace-nowrap text-center">
@@ -97,6 +101,7 @@
         </div>
       </div>
     </div>
+    <Viewo v-if="displayoffer"  @close="closeOffer"/>
   </div>
 </template>
 
@@ -106,6 +111,7 @@ import router from '../../../router'
 import { ref } from 'vue'
 import { PencilIcon, DocumentDownloadIcon, EyeIcon } from '@heroicons/vue/solid'
 import { getOffers } from '../../../api/offers.js'
+import Viewo from '../../../components/viewo.vue'
 
 const people = [
   {
@@ -139,7 +145,27 @@ export default {
   components: {
     PencilIcon,
     DocumentDownloadIcon,
-    EyeIcon
+    EyeIcon,
+    Viewo
+  },
+
+    data() {
+    return { 
+      displayoffer: false
+    }
+  },
+
+  methods: {
+    btnClick: function(event) {
+      router.push('new');
+    },
+    showOffer() {
+      console.log()
+      this.displayoffer = true
+    },
+    closeOffer() {
+      this.displayoffer = false
+    }
   },
   setup() {
     const loading = ref(false)
@@ -157,11 +183,6 @@ export default {
       offers,
       loading
     }
-  },
-  methods: {
-    btnClick: function(event) {
-      router.push('new');
-    },
   },
 }
 </script>

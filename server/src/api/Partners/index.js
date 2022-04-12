@@ -47,10 +47,15 @@ router.get('/get-partner', (request, response) => {
             regcode: '12838033',
             email: 'info@av.ee',
             domain: 'www.airikavettik.ee',
+            description: 'Ettevõte tegeleb fotograafiaga.',
             contact: [{
                 name: 'Airika Vettik',
                 email: 'airika@av.ee',
                 phone: '59194429'
+            },{
+                name: 'Mari Maasikas',
+                email: 'mari@av.ee',
+                phone: '59194345'
             }],
             offers: [{
                 status: 'Koostamisel',

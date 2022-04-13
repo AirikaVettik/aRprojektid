@@ -2,19 +2,6 @@
     <div class="sm:flex sm:place-items-end pt-4 pb-4">
             <div class="sm:flex-auto">
                   <div>
-                       <div>
-    <fieldset class="mt-4">
-      <legend class="sr-only">Notification method</legend>
-      <div class="space-y-4 pb-10 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
-        <div v-for="notificationMethod in notificationMethods" :key="notificationMethod.id" class="flex items-center">
-          <input :id="notificationMethod.id" name="notification-method" type="radio" :checked="notificationMethod.id === 'offer'" class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300" />
-          <label :for="notificationMethod.id" class="ml-3 block text-sm font-medium text-gray-700">
-            {{ notificationMethod.title }}
-          </label>
-        </div>
-      </div>
-    </fieldset>
-  </div>
                        <div class="grid grid-cols-2 gap-6">
                             <div>
                                 <!-- Projektijuht -->
@@ -27,6 +14,7 @@
                                 </select>
                             </div>
                             <div>
+                            
                                 <!-- Tööd teaostav ettevõte -->
                                 <label for="contact" class="block text-sm font-medium text-gray-700">Tööd teostab</label>
                         <div class="mt-1 flex rounded-md shadow-sm">
@@ -376,7 +364,7 @@
                                     <thead class="bg-gray-50">
                                         <tr class="divide-x divide-gray-200">
                                         <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pl-4">Kuupäev</th>
-                                        <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-6">Maksenimi</th>
+                                        <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-6">Plugin</th>
                                         <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-6">Summa</th>
                                         <th scope="col" class="py-3.5 pl-4 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-6"></th>
                                         </tr>

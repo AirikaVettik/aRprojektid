@@ -489,8 +489,8 @@ import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } f
 import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/solid'
 
 const publishingOptions = [
-  { title: 'Koostamisel', description: 'Hinnapakkumine on koostamisel', current: true },
-  { title: 'Väljasaadetud', description: 'Hinnapakkumine on väljasaadetud, ootab kliendilt vastust', current: false },
+  { title: 'Koostamisel', description: 'Hinnapakkumine on koostamisel', current: true , color: 'amber-200'},
+  { title: 'Väljasaadetud', description: 'Hinnapakkumine on väljasaadetud, ootab kliendilt vastust', current: false, color: 'yellow'  },
   { title: 'Tagasilükatud', description: 'Hinnapakkumine on tagasilükatud.', current: false },
   { title: 'Kinnitatud', description: 'Hinnapakkumine on heakskiidetud ja võetakse töösse', current: false }
 ]

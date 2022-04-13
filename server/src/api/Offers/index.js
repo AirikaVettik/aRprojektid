@@ -97,6 +97,26 @@ router.get('/get-offer', (request, response) => {
                 title: 'Kiri - kliendilt',
                 info: 'Soovib 2 nädalaks panna projekti ootele, kliendil kiired ajad.',
                 date: '25.02.2022'
+            },{
+                title: 'Kiri - kliendilt',
+                info: 'Soovib 2 nädalaks panna projekti ootele, kliendil kiired ajad.',
+                date: '25.02.2022'
+            },{
+                title: 'Kiri - kliendilt',
+                info: 'Soovib 2 nädalaks panna projekti ootele, kliendil kiired ajad.',
+                date: '25.02.2022'
+            },{
+                title: 'Kiri - kliendilt',
+                info: 'Soovib 2 nädalaks panna projekti ootele, kliendil kiired ajad.',
+                date: '25.02.2022'
+            },{
+                title: 'Kiri - kliendilt',
+                info: 'Soovib 2 nädalaks panna projekti ootele, kliendil kiired ajad.',
+                date: '25.02.2022'
+            },{
+                title: 'Kiri - kliendilt',
+                info: 'Soovib 2 nädalaks panna projekti ootele, kliendil kiired ajad.',
+                date: '25.02.2022'
             }],
             timetable: [{
                 checkbox: true,
@@ -121,27 +141,35 @@ router.get('/get-offer', (request, response) => {
             }],
             budget: [{
                 name: 'Kujundus',
+                hours: 20,
+                price: 40,
                 realhours: 10,
                 realprice: 30,
                 profit: 500
             },{
                 name: 'Arendustööd',
+                hours: 60,
+                price: 60,
                 realhours: 50,
                 realprice: 40,
                 profit: 1600
             },{
                 name: 'Testimine',
+                hours: 20,
+                price: 40,
                 realhours: 20,
                 realprice: 20,
                 profit: 400
             },{
                 name: 'Projektijuhtimine',
+                hours: 30,
+                price: 30,
                 realhours: 20,
                 realprice: 20,
                 profit: 500
             }],
             cost: 3000,
-            profit: 3100,
+            profit: 3000,
             plugins: [{
                 name: 'Tõlkeplugin WPML, aastamakse',
                 sum: 100,
@@ -155,7 +183,7 @@ router.get('/get-offer', (request, response) => {
                 sum: 3050,
                 date: '10.02.2022',
             },{
-                checkbox:  false,
+                checkbox:  true,
                 name: 'II osamakse - www.raindesign.ee',
                 sum: 1016,
                 date: '01.03.2022',
@@ -172,11 +200,18 @@ router.get('/get-offer', (request, response) => {
             }],
             paymenttotal: 6010,
             guaranty: [{
+                name: 'Garantii',
                 start: '05.05.2022',
                 end: '05.08.2022'
             }],
-            projectend: '10.05.2022',
-            service: '10.05.2022'
+            projectend: [{
+                date: '10.05.2022',
+                name: 'Projekti lõpp'
+            },{
+                date: '10.05.2022',
+                name: 'Hooldus'
+            },],
+            
         }
     )
 })

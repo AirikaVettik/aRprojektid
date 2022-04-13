@@ -152,8 +152,7 @@ export default {
     btnClick: function(event) {
       router.push('new');
     },
-    showProject(partner) {
-      console.log(partner)
+    showProject() {
       this.displayproject = true
     },
     closeProject() {

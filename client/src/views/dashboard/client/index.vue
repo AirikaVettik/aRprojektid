@@ -130,7 +130,7 @@
                   
                   <td class="relative whitespace-nowrap text-center">
                   <div>
-                    <button @click="showClient(partner)">
+                    <button @click="show">
                     <EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
                     </button>
                   </div>
@@ -151,7 +151,7 @@
     </div>
   </div>
     </div>
-    <Viewclient v-if="displayclient"  @close="closeClient"/>
+    <Viewclient v-if="display"  @close="close"/>
   </div>
 </template>
 
@@ -191,16 +191,16 @@ export default {
 
   data() {
     return { 
-      displayclient: false
+      display: false
     }
   },
 
   methods: {
-    showClient(partner) {
-      this.displayclient = true
+    show() {
+      this.display = true
     },
-    closeClient() {
-      this.displayclient = false
+    close() {
+      this.display= false
     }
   },
 

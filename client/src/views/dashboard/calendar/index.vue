@@ -3,25 +3,25 @@
   <div class="lg:flex lg:h-full lg:flex-col">
     <header class="relative z-20 flex items-center justify-between border-b border-gray-200 py-4 px-6 lg:flex-none">
       <h1 class="text-lg font-semibold text-gray-900">
-        <time datetime="2022-01">January 2022</time>
+        <time datetime="2022-01">Aprill 2022</time>
       </h1>
       <div class="flex items-center">
         <div class="flex items-center rounded-md shadow-sm md:items-stretch">
           <button type="button" class="flex items-center justify-center rounded-l-md border border-r-0 border-gray-300 bg-white py-2 pl-3 pr-4 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:px-2 md:hover:bg-gray-50">
-            <span class="sr-only">Previous month</span>
+            <span class="sr-only">Eelmine kuu</span>
             <ChevronLeftIcon class="h-5 w-5" aria-hidden="true" />
           </button>
-          <button type="button" class="hidden border-t border-b border-gray-300 bg-white px-3.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:relative md:block">Today</button>
+          <button type="button" class="hidden border-t border-b border-gray-300 bg-white px-3.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:relative md:block">Täna</button>
           <span class="relative -mx-px h-5 w-px bg-gray-300 md:hidden" />
           <button type="button" class="flex items-center justify-center rounded-r-md border border-l-0 border-gray-300 bg-white py-2 pl-4 pr-3 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:px-2 md:hover:bg-gray-50">
-            <span class="sr-only">Next month</span>
+            <span class="sr-only">Järgmine kuu</span>
             <ChevronRightIcon class="h-5 w-5" aria-hidden="true" />
           </button>
         </div>
         <div class="hidden md:ml-4 md:flex md:items-center">
           <Menu as="div" class="relative">
             <MenuButton type="button" class="flex items-center rounded-md border border-gray-300 bg-white py-2 pl-3 pr-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
-              Month view
+              Kuu vaade
               <ChevronDownIcon class="ml-2 h-5 w-5 text-gray-400" aria-hidden="true" />
             </MenuButton>
 
@@ -57,7 +57,7 @@
             <MenuItems class="focus:outline-none absolute right-0 mt-3 w-36 origin-top-right divide-y divide-gray-100 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
               <div class="py-1">
                 <MenuItem v-slot="{ active }">
-                  <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Create event</a>
+                  <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Loo tegevus</a>
                 </MenuItem>
               </div>
               <div class="py-1">
@@ -86,13 +86,13 @@
     </header>
     <div class="shadow ring-1 ring-black ring-opacity-5 lg:flex lg:flex-auto lg:flex-col">
       <div class="grid grid-cols-7 gap-px border-b border-gray-300 bg-gray-200 text-center text-xs font-semibold leading-6 text-gray-700 lg:flex-none">
-        <div class="bg-white py-2">M<span class="sr-only sm:not-sr-only">on</span></div>
-        <div class="bg-white py-2">T<span class="sr-only sm:not-sr-only">ue</span></div>
-        <div class="bg-white py-2">W<span class="sr-only sm:not-sr-only">ed</span></div>
-        <div class="bg-white py-2">T<span class="sr-only sm:not-sr-only">hu</span></div>
-        <div class="bg-white py-2">F<span class="sr-only sm:not-sr-only">ri</span></div>
-        <div class="bg-white py-2">S<span class="sr-only sm:not-sr-only">at</span></div>
-        <div class="bg-white py-2">S<span class="sr-only sm:not-sr-only">un</span></div>
+        <div class="bg-white py-2">E<span class="sr-only sm:not-sr-only">smaspäev</span></div>
+        <div class="bg-white py-2">T<span class="sr-only sm:not-sr-only">eisipäev</span></div>
+        <div class="bg-white py-2">K<span class="sr-only sm:not-sr-only">olmapäev</span></div>
+        <div class="bg-white py-2">N<span class="sr-only sm:not-sr-only">eljapäev</span></div>
+        <div class="bg-white py-2">R<span class="sr-only sm:not-sr-only">eede</span></div>
+        <div class="bg-white py-2">L<span class="sr-only sm:not-sr-only">aupäev</span></div>
+        <div class="bg-white py-2">P<span class="sr-only sm:not-sr-only">ühapäev</span></div>
       </div>
       <div class="flex bg-gray-200 text-xs leading-6 text-gray-700 lg:flex-auto">
         <div class="hidden w-full lg:grid lg:grid-cols-7 lg:grid-rows-6 lg:gap-px">

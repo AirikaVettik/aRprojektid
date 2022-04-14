@@ -106,7 +106,7 @@
               </thead>
               <tbody class="text-right divide-y divide-gray-200 bg-white">
 
-                <tr v-for="(partner, partnerIndex) in partners" :key="partnerIndex">
+                <tr v-for="(partner, index) in partners.getPartners" :key="partner.regcode">
 
                   <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
                     <div class="font-medium text-gray-900">{{ partner.name }}</div>
@@ -117,14 +117,14 @@
                     <div class="text-gray-900">{{ partner.email }}</div>
                   </td>
 
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                    <div class="text-gray-900">{{ partner.contact[0].name }}</div>
-                    <div class="text-gray-500">{{ partner.contact[0].email }}</div>
-                    <div class="text-gray-500">{{ partner.contact[0].phone }}</div>
+                  <td v-for="(contact, index) in partner.contacts" :key="contact.name" class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                    <div class="text-gray-900">{{ contact.name }}</div>
+                    <div class="text-gray-500">{{ contact.email }}</div>
+                    <div class="text-gray-500">{{ contact.phone }}</div>
                   </td>
 
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  <div class="text-gray-900">{{ partner.domain }}</div>
+                  <td  v-for="(domain, index) in partner.domains" :key="domain.name" class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                  <div class="text-gray-900">{{ domain.name }}</div>
                   </td>
 
                   
@@ -159,28 +159,7 @@
 import { ref } from 'vue' 
 import { PencilIcon, EyeIcon } from '@heroicons/vue/solid'
 import Viewclient from '../../../components/viewclient.vue'
-import { getPartners, getPartner } from '../../../api/partners.js'
-
-const people = [
-  {
-    client: 'aRfoto OÜ',
-    id: '12833038',
-    email: 'info@airikavettik.ee',
-    contactEmail: 'airika@airikavettik.ee',
-    contactPhone: '+372 59194429',
-    contactName: 'Airika Vettik',
-    domain: 'www.airikavettik.ee',
-  },
-   {
-    client: 'Estonian Business OÜ',
-    id: '13420045',
-    email: 'eb@eb.ee',
-    contactEmail: 'mihkel@airikavettik.ee',
-    contactPhone: '+372 58071815',
-    contactName: 'Mihkel Tõrva',
-    domain: 'www.eb.ee',
-  },
-]
+import { getPartners } from '../../../api/partners.js'
 
 export default {
   components: {
@@ -191,7 +170,7 @@ export default {
 
   data() {
     return { 
-      display: false
+      display: false,
     }
   },
 
@@ -215,16 +194,13 @@ export default {
       loading.value = false
     }
     allPartners()
+    console.log(partners)
 
-    const partner = ref([])
-    async function onePartner() {
-      partner.value = await getPartner()
-    }
-    onePartner()
+
+    
     
     return {
       partners,
-      partner,
       loading,
     }
   },

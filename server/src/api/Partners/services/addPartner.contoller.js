@@ -3,7 +3,6 @@ const Partners = db.Partners
 
 module.exports = async function (req, res) {
     try {
-        
         await Partners.create(req.body)
         res.status(200).json ({ message: 'Tehtud!' })
     } catch (error) {

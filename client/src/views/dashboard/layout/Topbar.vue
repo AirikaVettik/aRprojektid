@@ -5,7 +5,9 @@
             <span class="sr-only">Open sidebar</span>
             <MenuAlt2Icon class="h-6 w-6" aria-hidden="true" />
           </button>
+          
           <div class="flex-1 flex justify-between px-4 sm:px-6">
+          
             <div class="flex-1 flex">
               <form class="w-full flex md:ml-0" action="#" method="GET">
                 <label for="search-field" class="sr-only">Otsing</label>
@@ -18,26 +20,19 @@
               </form>
             </div>
             <div class="ml-2 flex items-center space-x-4 sm:ml-6 sm:space-x-6">
-                 <button type="button" class="flex bg-teal-600 p-1 rounded-full items-center justify-center text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                <PlusSmIcon class="h-6 w-6" aria-hidden="true" />
-                <span class="sr-only">Add file</span>
-              </button>
-              <!-- Profile dropdown -->
-              <Menu as="div" class="relative flex-shrink-0">
+                          <Menu as="div" class="relative flex-shrink-0">
                 <div>
                   <MenuButton class="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    <span class="sr-only">Open user menu</span>
-                    <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="" />
+          
+                    
+                   <h1 class="text-center text-xl font-semibold text-gray-900">Tere, Airika!</h1>
                   </MenuButton>
                 </div>
-                <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
-                  <MenuItems class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <MenuItem v-for="item in userNavigation" :key="item.name" v-slot="{ active }">
-                      <a :href="item.href" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">{{ item.name }}</a>
-                    </MenuItem>
-                  </MenuItems>
-                </transition>
               </Menu>
+                       <div>
+                       <button @click="btnClick" type="button" class="inline-flex justify-center rounded-md border border-transparent bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Koosta uus</button>
+                       </div>
+              <!-- Profile dropdown -->
             </div>
           </div>
         </div>
@@ -46,6 +41,7 @@
 
 <script>
 import { ref } from 'vue'
+import router from '../../../router'
 
 import {
   Menu,
@@ -76,6 +72,11 @@ export default {
     PlusSmIcon,
     SearchIcon,
 
+  },
+  methods: {
+    btnClick: function(event) {
+      router.push('new');
+    },
   },
   setup() {
     const mobileMenuOpen = ref(false)

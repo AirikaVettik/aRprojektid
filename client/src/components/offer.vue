@@ -167,8 +167,9 @@
     <div>
         <div class="md:grid md:grid-cols-5">
         <div class="md:col-span-1">
-            <div class="px-4 sm:px-0 pt-4">
-            <h3 class="text-lg font-medium leading-6 text-gray-900">Kujundus</h3>
+            <div class="px-4 sm:px-0 pt-4 mr-2">
+            <h3 class="pb-3 text-lg font-medium leading-6 text-gray-900 ">Etapp</h3>
+            <input type="text" name="name" id="name" class="focus:ring-teal-500 focus:border-teal-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="Kujundus" />
             </div>
         </div>
         <div class="mt-5 md:mt-0 md:col-span-4">
@@ -179,7 +180,7 @@
                     <div class="mt-1">
                     <textarea id="design" name="design" rows="10" class="shadow-sm focus:ring-teal-500 focus:border-teal-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="... " />
                     </div>
-                    <p class="mt-2 text-xs text-gray-500">Kujundustöö kirjeldus.</p>
+                    <p class="mt-2 text-xs text-gray-500">Etapi kirjeldus.</p>
                 </div>
                 </div>
 
@@ -214,7 +215,11 @@
             </div>
             </div>
             </form>
+            
         </div>
+        </div>
+        <div class="mt-10 sm:mt-5 sm:flex-none text-right">
+            <button type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Lisa etapp</button>
         </div>
         <div class="hidden sm:block" aria-hidden="true">
         <div class="py-5">
@@ -222,186 +227,6 @@
         </div>
         </div>
     
-    </div>
-
-    <!-- Arendustööd -->
-    <div>
-        <div class="md:grid md:grid-cols-5">
-        <div class="md:col-span-1">
-            <div class="px-4 sm:px-0 pt-4">
-            <h3 class="text-lg font-medium leading-6 text-gray-900">Arendustööd</h3>
-            </div>
-        </div>
-        <div class="mt-5 md:mt-0 md:col-span-4">
-            <form action="#" method="POST">
-            <div class="shadow sm:rounded-md sm:overflow-hidden">
-                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                <div>
-                    <div class="mt-1">
-                    <textarea id="development" name="development" rows="10" class="shadow-sm focus:ring-teal-500 focus:border-teal-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="... " />
-                    </div>
-                    <p class="mt-2 text-xs text-gray-500">Arendustöö kirjeldus.</p>
-                </div>
-                </div>
-
-                <div class="px-4 sm:px-6 lg:px-8">
-                <div class=" flex flex-col sm:-mx-6 md:mx-0">
-                <table class="min-w-full divide-y divide-gray-300">
-                            <thead>
-                            <tr>
-                                <th class=" w-1/6 px-3 text-right text-sm font-semibold text-gray-900 sm:table-cell">Tunnid (h) </th>
-                                <th class=" w-1/6 px-3 text-right text-sm font-semibold text-gray-900 sm:table-cell">Hind (€/h)</th>
-                                <th class=" w-1/6 py-3 text-right text-sm font-semibold text-gray-900 sm:table-cell">Kokku (€) (€)</th>
-                            </tr>
-                            </thead>
-                            
-                            <tbody>
-                            <tr>
-                                 <td class=" py- px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                <input type="number" name="hours" id="hours" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="25"/>
-                            </td>
-                            <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                <input type="number" name="price" id="price" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="40.00"/>
-                            </td>
-                            <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                <a name="total" id="total" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200"/>
-                                <p class="text-right" > 600.00 </p> 
-                            </td>
-                            </tr>
-                            </tbody>
-                </table>
-            </div>
-            </div>
-            </div>
-            </form>
-        </div>
-        </div>
-        <div class="hidden sm:block" aria-hidden="true">
-        <div class="py-5">
-        <div class="border-t border-gray-200" />
-        </div>
-        </div>
-    </div>
-
-    <!-- Testimine -->
-    <div>
-        <div class="md:grid md:grid-cols-5">
-        <div class="md:col-span-1">
-            <div class="px-4 sm:px-0 pt-4">
-            <h3 class="text-lg font-medium leading-6 text-gray-900">Testimine</h3>
-            </div>
-        </div>
-        <div class="mt-5 md:mt-0 md:col-span-4">
-            <form action="#" method="POST">
-            <div class="shadow sm:rounded-md sm:overflow-hidden">
-                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                <div>
-                    <div class="mt-1">
-                    <textarea id="testing" name="testing" rows="10" class="shadow-sm focus:ring-teal-500 focus:border-teal-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="... " />
-                    </div>
-                    <p class="mt-2 text-xs text-gray-500">Testimistöö kirjeldus.</p>
-                </div>
-                </div>
-
-                <div class="px-4 sm:px-6 lg:px-8">
-                <div class=" flex flex-col sm:-mx-6 md:mx-0">
-                <table class="min-w-full divide-y divide-gray-300">
-                            <thead>
-                            <tr>
-                                <th class=" w-1/6 px-3 text-right text-sm font-semibold text-gray-900 sm:table-cell">Tunnid (h) </th>
-                                <th class=" w-1/6 px-3 text-right text-sm font-semibold text-gray-900 sm:table-cell">Hind (€/h)</th>
-                                <th class=" w-1/6 py-3 text-right text-sm font-semibold text-gray-900 sm:table-cell">Kokku (€)</th>
-                            </tr>
-                            </thead>
-                            
-                            <tbody>
-                            <tr>
-                                 <td class=" py- px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                <input type="number" name="hours" id="hours" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="25"/>
-                            </td>
-                            <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                <input type="number" name="price" id="price" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="40.00"/>
-                            </td>
-                            <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                <a name="total" id="total" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200"/>
-                                <p class="text-right" > 600.00 </p> 
-                            </td>
-                            </tr>
-                            </tbody>
-                </table>
-            </div>
-            </div>
-            </div>
-            </form>
-        </div>
-        </div>
-        <div class="hidden sm:block" aria-hidden="true">
-        <div class="py-5">
-        <div class="border-t border-gray-200" />
-        </div>
-        </div>
-    </div>
-
-    <!-- Projektijuhtimine -->
-    <div>
-        <div class="md:grid md:grid-cols-5">
-        <div class="md:col-span-1">
-            <div class="px-4 sm:px-0 pt-4">
-            <h3 class="text-lg font-medium leading-6 text-gray-900">Projektijuhtimine</h3>
-            </div>
-        </div>
-        <div class="mt-5 md:mt-0 md:col-span-4">
-            <form action="#" method="POST">
-            <div class="shadow sm:rounded-md sm:overflow-hidden">
-                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                <div>
-                    <div class="mt-1">
-                    <textarea id="management" name="management" rows="10" class="shadow-sm focus:ring-teal-500 focus:border-teal-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="... " />
-                    </div>
-                    <p class="mt-2 text-xs text-gray-500">Projektijuhtimistöö kirjeldus.</p>
-                </div>
-                </div>
-
-                <div class="px-4 sm:px-6 lg:px-8">
-                <div class=" flex flex-col sm:-mx-6 md:mx-0">
-                <table class="min-w-full divide-y divide-gray-300">
-                            <thead>
-                            <tr>
-                                <th class=" w-1/6 px-4 text-right text-sm font-semibold text-gray-900 sm:table-cell">Tunnid (h) </th>
-                                <th class=" w-1/6 px-4 text-right text-sm font-semibold text-gray-900 sm:table-cell">Hind (€/h)</th>
-                                <th class=" w-1/6 py-4 text-right text-sm font-semibold text-gray-900 sm:table-cell">Kokku (€)</th>
-                            </tr>
-                            </thead>
-                            
-                            <tbody>
-                            <tr>
-                                <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                <input type="number" name="hours" id="hours" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="25"/>
-                                </td>
-
-                                <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                <input type="number" name="price" id="price" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="40.00"/>
-                                </td>
-
-                                <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                <a name="total" id="total" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200"/>
-                                <p class="text-right" > 600.00 </p> 
-                                </td>
-                            </tr>
-                            </tbody>
-                </table>
-            </div>
-            </div>
-            </div>
-            </form>
-        </div>
-        </div>
-        <div class="hidden sm:block" aria-hidden="true">
-        <div class="py-5">
-        <div class="border-t border-gray-200" />
-        </div>
-        </div>
-        
     </div>
 
     <!-- Tingimused -->

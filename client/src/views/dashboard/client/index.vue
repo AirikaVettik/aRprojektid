@@ -9,7 +9,7 @@
         <div class="md:grid md:grid-cols-5">
         <div class="md:col-span-1">
             <div class="px-4 sm:px-0 pt-4">
-            <h3 class="text-lg font-medium leading-6 text-gray-900">Kliendi andmed</h3>
+            <h3 class="text-lg font-medium leading-6 text-gray-900">Uus klient: </h3>
             </div>
         </div>
         <div class="mt-5 md:mt-4 md:col-span-6">

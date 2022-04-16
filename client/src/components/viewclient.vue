@@ -102,7 +102,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { PencilIcon, DocumentDownloadIcon, EyeIcon } from '@heroicons/vue/solid'
 import { getPartner } from '../api/partners.js'
@@ -118,6 +118,7 @@ export default {
     DocumentDownloadIcon,
     EyeIcon
   },
+  props: ['partner'],
 
   methods: {
     close() {
@@ -128,6 +129,7 @@ export default {
   setup() {
     const open = ref(true)
     const loading = ref(false)
+    const regcode = computed(() => route.params.regcode);
 
     const partner = ref([])
     async function onePartner() {
@@ -140,6 +142,7 @@ export default {
 
     return {
       partner,
+      regcode,
       loading,
       open,
     }

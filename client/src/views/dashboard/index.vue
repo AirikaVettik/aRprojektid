@@ -33,7 +33,7 @@ export default {
   components: {
     Sidemenu,
     Topbar,
-    Todolist
+    Todolist,
   },
   setup() {
     

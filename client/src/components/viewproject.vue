@@ -13,7 +13,7 @@
      <!-- Projektinimi, staatus, projektijuht, töö teostaja -->
                           <div class="px-4 py-5 sm:px-6">
                                                   <h3 class="text-lg leading-6 font-medium text-gray-900">{{offer.title}}</h3>
-                                                  <p class="mt-1 mb-5 max-w-2xl text-sm text-gray-500">{{offer.objectproject}}: {{offer.projectstatus}}</p>
+                                                  <p class="mt-1 mb-5 max-w-2xl text-sm text-gray-500">{{offer.status}}</p>
                                                   
                                                   <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                                                     <div class="sm:col-span-1">

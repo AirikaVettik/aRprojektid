@@ -12,11 +12,11 @@
     <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
     <select id="tabs" name="tabs" class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md pt-2">
       
+      <option>Uued projektid</option>
+
       <option>Minu projektid</option>
 
-      <option>Kõik</option>
-
-      <option>Lõpetatud </option>
+      <option> Kõik</option>
 
     </select>
   </div>
@@ -24,11 +24,11 @@
     <div class="border-b border-gray-200">
       <nav class="-mb-px-3 flex pt-10 uppercase" aria-label="Tabs">
         <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
+        <a href="#" class="border-transparent text-gray-500 w-1/3 hover:text-teal-700 hover:border-gray-300 py-4 px-1 text-center border-b-2 font-medium text-sm"> Uued projektid </a>
+
         <a href="#" class="border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm" aria-current="page"> Minu projektid </a>
 
         <a href="#" class="border-transparent text-gray-500 w-1/3 hover:text-teal-700 hover:border-gray-300 py-4 px-1 text-center border-b-2 font-medium text-sm"> Kõik </a>
-
-        <a href="#" class="border-transparent text-gray-500 w-1/3 hover:text-teal-700 hover:border-gray-300 py-4 px-1 text-center border-b-2 font-medium text-sm"> Lõpetatud </a>
 
       </nav>
     </div>

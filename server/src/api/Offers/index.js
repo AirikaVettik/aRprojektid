@@ -6,15 +6,15 @@ router.get('/get-offers', (request, response) => {
     response.status(200).json([
         {
             object: 'Hinnapakkumine',
-            sellmanager: 'Tuuli Kena',
+            sellmanager: 'Airika Vettik',
             project: 'Uus koduleht domeenile www.airikavettik.ee',
             partner: 'aRfoto OÜ',
             contact: 'Airika Vettik',
-            status: 'Väljasaadetud'
+            status: 'Koostamisel'
         },
         {
             object: 'Hinnapakkumine',
-            sellmanager: 'Tuuli Kena',
+            sellmanager: 'Airika Vettik',
             project: 'Uus koduleht domeenile www.eb.ee',
             partner: 'EB OÜ',
             contact: 'Mihkel Tõrva',
@@ -22,11 +22,11 @@ router.get('/get-offers', (request, response) => {
         },
         {
             object: 'Hinnapakkumine',
-            sellmanager: 'Tuuli Kena',
+            sellmanager: 'Airika Vettik',
             project: 'Uus koduleht domeenile www.raindesign.ee',
             partner: 'RainDesign OÜ',
             contact: 'Rain Tõrva',
-            status: 'Kinnitatud'
+            status: 'Koostamisel'
         },
 
 
@@ -36,8 +36,7 @@ router.get('/get-offers', (request, response) => {
 router.get('/get-offer', (request, response) => {  
     response.status(200).json(
         {
-            objectoffer: 'Hinnapakkumine',
-            offerstatus: 'koostamisel',
+            status: 'Pausil',
             title: 'Uus koduleht domeenile www.raindesign.ee',
             sellmanager: 'Tuuli Kena',
             period: '12 töönädalat',
@@ -77,10 +76,8 @@ router.get('/get-offer', (request, response) => {
             totalhours: 130,
             prepayment: '50%',
             total: 6100,
-            objectproject: 'Projekt',
             manager: 'Kaari Kari',
             developer: 'Kodulehed OÜ',
-            projectstatus: 'ootel',
             logs: [{
                 title: 'Projekti võeti töösse',
                 info: 'Esitati ettemaksuarve',

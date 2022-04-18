@@ -20,15 +20,7 @@
               </form>
             </div>
             <div class="ml-2 flex items-center space-x-4 sm:ml-6 sm:space-x-6">
-                          <Menu as="div" class="relative flex-shrink-0">
-                <div>
-                  <MenuButton class="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-          
-                    
-                   <h1 class="text-center text-xl font-semibold text-gray-900">Tere, Airika!</h1>
-                  </MenuButton>
-                </div>
-              </Menu>
+
                        <div>
                        <button @click="btnClick" type="button" class="inline-flex justify-center rounded-md border border-transparent bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Koosta uus</button>
                        </div>

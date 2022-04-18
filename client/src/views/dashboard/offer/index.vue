@@ -14,22 +14,22 @@
     <label for="tabs" class="sr-only">Valik</label>
     <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
     <select id="tabs" name="tabs" class="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md pt-2">
-      <option>Kõik</option>
-
       <option>Koostamisel</option>
 
       <option>Väljasaadetud</option>
+
+      <option>Kõik</option>
     </select>
   </div>
   <div class="hidden sm:block">
     <div class="border-b border-gray-200">
       <nav class="-mb-px-3 flex pt-10 uppercase" aria-label="Tabs">
         <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
-        <a href="#" class="border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm" aria-current="page"> Minu hinnapakkumised </a>
+        <a href="#" class="border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm" aria-current="page"> Koostamisel </a>
 
-        <a href="#" class="border-transparent text-gray-500 hover:text-teal-700 hover:border-gray-300 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm"> Kõik</a>
+        <a href="#" class="border-transparent text-gray-500 hover:text-teal-700 hover:border-gray-300 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm"> Väljasaadetud </a>
 
-        <a href="#" class="border-transparent text-gray-500 hover:text-teal-700 hover:border-gray-300 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm"> Väljasaadetud</a>
+        <a href="#" class="border-transparent text-gray-500 hover:text-teal-700 hover:border-gray-300 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm"> Kõik </a>
 
       </nav>
     </div>

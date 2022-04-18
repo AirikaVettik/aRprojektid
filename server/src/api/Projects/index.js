@@ -9,44 +9,27 @@ router.get('/get-projects', (request, response) => {
             project: 'Uus koduleht domeenile www.airikavettik.ee',
             partner: 'aRfoto OÜ',
             contact: 'Airika Vettik',
-            status: 'Pausil',
-            manager: 'Mari Maasikas',
+            status: 'Kujundustöö',
+            manager: 'Airika Vettik',
         },
         {
             object: 'Projekt',
             project: 'Uus koduleht domeenile www.eb.ee',
             partner: 'EB OÜ',
             contact: 'Mihkel Tõrva',
-            status: 'Arendustööd',
-            manager: 'Juhan Klaas',
+            status: 'Pausil',
+            manager: 'Airika Vettik',
         },
         {
             object: 'Projekt',
             project: 'Uus e-pood domeenile www.raindesign.ee',
             partner: 'Raindesign OÜ',
             contact: 'Rain Tõrva',
-            status: 'Kliendi sisendi ootel',
+            status: 'Arendustöö',
             manager: 'Airika Vettik',
         },
 
     ])
-})
-
-router.get('/get-partner', (request, response) => {  
-    response.status(200).json(
-        {
-            name: 'aRfoto OÜ',
-            regcode: '12838033',
-            email: 'info@av.ee',
-            domain: 'www.airikavettik.ee',
-            contact: [{
-                name: 'Airika Vettik',
-                email: 'airika@av.ee',
-                phone: '59194429'
-            }],
-            projects: []
-        },
-    )
 })
 
 router.post('/add-partner', (request, response) => {  

@@ -1,11 +1,12 @@
 <template>
 <div class="h-screen flex">
         <!-- Narrow sidebar -->
-    <div class="hidden w-36 bg-teal-700 overflow-y-auto md:block">
+    <div class="hidden w-40 bg-teal-700 overflow-y-auto md:block">
       <div class="w-full py-6 flex flex-col items-center">
         <div class="flex-shrink-0 flex items-center" >
-          <img class="h-32 w-auto" src="/img/logo.png" alt="Workflow"/>
+          <img class="h-32 w-auto" src="/img/logo.png" alt="Workflow" href/>
         </div>
+        <h1 class="text-center px-10 py-5 text-xl font-bold text-slate-200">Tere, Airika!</h1>
         <div class="flex-1 mt-6 w-full px-2 space-y-1">
           <span v-for="item in sidebarNavigation" :key="item.name" @click="changeRoute(item.href)" :class="[route.name === item.href ? 'bg-teal-800 text-white' : 'text-teal-100 hover:bg-teal-800 hover:text-white', 'group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium']" :aria-current="item.current ? 'page' : undefined">
             <component :is="item.icon" :class="[item.current ? 'text-white' : 'text-white-300 group-hover:text-white', 'h-10 w-10']" aria-hidden="true" />
@@ -71,20 +72,22 @@ import {
   CogIcon,
   CollectionIcon,
   HomeIcon,
-  PhotographIcon,
   UserGroupIcon,
-  ViewGridIcon,
-  XIcon,
+  DocumentTextIcon,
+  DocumentReportIcon,
+  CalendarIcon,
+  LogoutIcon
 } from '@heroicons/vue/outline'
-import { SearchIcon } from '@heroicons/vue/solid'
+import { SearchIcon, } from '@heroicons/vue/solid'
 
 const sidebarNavigation = [
   { name: 'Töölaud', href: 'Board', icon: HomeIcon },
-  { name: 'Kliendid', href: 'Client', icon: ViewGridIcon },
-  { name: 'Hinnapakkumised', href: 'Offer', icon: UserGroupIcon },
-  { name: 'Projektid', href: 'Project', icon: PhotographIcon },
-  { name: 'Kalender', href: 'Calendar', icon: CollectionIcon },
+  { name: 'Kliendid', href: 'Client', icon: UserGroupIcon },
+  { name: 'Hinnapakkumised', href: 'Offer', icon: DocumentTextIcon },
+  { name: 'Projektid', href: 'Project', icon:  DocumentReportIcon},
+  { name: 'Kalender', href: 'Calendar', icon: CalendarIcon },
   { name: 'Seaded', href: '#', icon: CogIcon },
+  { name: 'Logi välja', href: 'Login', icon: LogoutIcon },
 ]
 
 export default {
@@ -93,7 +96,6 @@ export default {
     DialogOverlay,
     TransitionChild,
     TransitionRoot,
-    XIcon,
   },
   setup() {
     const mobileMenuOpen = ref(false)

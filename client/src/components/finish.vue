@@ -36,7 +36,7 @@
                                         <tr v-for="person in people" :key="person.name" class="divide-x divide-gray-200">
                                         
                                         <td class="py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                        <input type="text" name="step" id="step" class="w-full text-left focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="Tõlkeplugin"/>
+                                        <input type="text" name="step" id="step" class="w-full text-left focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="Plugin"/>
                                         </td>
 
                                         <td class="py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
@@ -215,7 +215,6 @@ import { CheckIcon, ChevronDownIcon, CalendarIcon, XIcon } from '@heroicons/vue/
 
 const people = [
   { name: 'Kujundus'},
-  { name: 'Arendustööd'}
 ]
 
 const guarantees = [

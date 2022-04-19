@@ -155,14 +155,14 @@
                             <tbody>
                             <tr>
                             <td class=" py- px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                <input type="number" name="hours" id="hours" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="25"/>
+                                <input type="number" name="hours" id="hours" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="0"/>
                             </td>
                             <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                <input type="number" name="price" id="price" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="40.00"/>
+                                <input type="number" name="price" id="price" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="0"/>
                             </td>
                             <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
                                 <a name="total" id="total" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200"/>
-                                <p class="text-right" > 600.00 </p> 
+                                <p class="text-right" > 0 </p> 
                             </td>
 
                             </tr>
@@ -230,7 +230,7 @@
                                     <div class="flex justify-between mb-5 place-items-end">
                                         <div class="text-gray-900 text-right flex-1">Töötunnid </div>
                                         <div class="text-right w-40">
-                                            <div class="text-lg text-gray-800">180 h</div>
+                                            <div class="text-lg text-gray-800"> 0 h</div>
                                         </div>
                                     </div>
                                     <div class="flex justify-between mb-5 place-items-end">
@@ -246,7 +246,7 @@
                                         <div class="flex justify-between place-items-end ">
                                             <div class="text-xl text-gray-900 text-right flex-1 uppercase ">Projekti hind</div>
                                             <div class="text-right w-40">
-                                                <div class="text-xl text-gray-800 font-bold">8000 €</div>
+                                                <div class="text-xl text-gray-800 font-bold">0 €</div>
                                             </div>
                                         </div>
                                     </div>

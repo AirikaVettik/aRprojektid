@@ -251,20 +251,20 @@
                                     <div class="flex justify-between mb-5">
                                         <div class="text-gray-800 text-right flex-1">Projekti maksumus</div>
                                         <div class="text-right w-40">
-                                            <div class="text-gray-800 font-medium">3400 €</div>
+                                            <div class="text-gray-800 font-medium">0 €</div>
                                         </div>
                                     </div>
                                     <div class="flex justify-between mb-5">
                                         <div class="text-sm text-gray-600 text-right flex-1">Projekti omahind</div>
                                         <div class="text-right w-40">
-                                            <div class="text-sm text-gray-600">2400 €</div>
+                                            <div class="text-sm text-gray-600">0 €</div>
                                         </div>
                                     </div>
 
                                     <div class="flex justify-between mb-5">
                                         <div class="text-sm text-gray-600 text-right flex-1">Pluginad</div>
                                         <div class="text-right w-40">
-                                            <div class="text-sm text-gray-600">200 €</div>
+                                            <div class="text-sm text-gray-600">0 €</div>
                                         </div>
                                     </div>
                                 
@@ -272,7 +272,7 @@
                                         <div class="flex justify-between">
                                             <div class="text-xl text-gray-900 text-right flex-1 uppercase ">Projekti kasum</div>
                                             <div class="text-right w-40">
-                                                <div class="text-xl text-gray-800 font-bold">1000 €</div>
+                                                <div class="text-xl text-gray-800 font-bold">0 €</div>
                                             </div>
                                         </div>
                                     </div>
@@ -336,11 +336,11 @@
                                         </td>
 
                                         <td class="py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                        <input type="text" name="step" id="step" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="Ettemaks 50%"/>
+                                        <input type="text" name="step" id="step" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="Plugin"/>
                                         </td>
 
                                         <td class="py-2 px-2 text-right text-sm text-gray-500 sm:table-cell">
-                                        <input type="number" name="profit" id="profit" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="40.00"/>
+                                        <input type="number" name="profit" id="profit" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="0"/>
                                         </td>
 
                                         <td class="relative whitespace-nowrap text-center">
@@ -358,7 +358,7 @@
                                     <div class="flex justify-between mb-5">
                                         <div class="text-gray-800 text-right flex-1">Kokku</div>
                                         <div class="text-right w-40">
-                                            <div class="text-gray-800 font-medium">3400 €</div>
+                                            <div class="text-gray-800 font-medium">0 €</div>
                                         </div>
                                     </div>
                                 </div>
@@ -430,7 +430,7 @@
                                         </td>
 
                                         <td class="w-1/6 py-2 px-2 text-right text-sm text-gray-500 sm:table-cell">
-                                        <input type="number" name="profit" id="profit" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="40.00"/>
+                                        <input type="number" name="profit" id="profit" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="0"/>
                                         </td>
 
                                         <td class="relative whitespace-nowrap text-center text-sm font-medium">
@@ -448,7 +448,7 @@
                                     <div class="flex justify-between mb-5">
                                         <div class="text-gray-800 text-right flex-1">Projekti maksumus</div>
                                         <div class="text-right w-40">
-                                            <div class="text-gray-800 font-medium">3400 €</div>
+                                            <div class="text-gray-800 font-medium">0 €</div>
                                         </div>
                                     </div>
                                 </div>
@@ -482,39 +482,10 @@ import { MailIcon, CalendarIcon, XIcon } from '@heroicons/vue/solid'
 
 const people = [
   { name: 'Kujundus'},
-  { name: 'Arendustööd'}
 ]
 
 const positions = [
-  {
-    id: 1,
-    title: 'Kliendiga ühendust võetud',
-    info: 'Lubab 20.02.2022-ks esimesed sisendid, püüab leida pildid',
-    type: 'Projekti logi',
-    description: '',
-    date: '07.02.2022',
-  },
-  {
-    id: 2,
-    title: 'Kliendilt saadud sisend',
-    info: 'Lubab 20.02.2022-ks esimesed sisendid, püüab leida pildid',
-    type: 'Projekti logi',
-    date: '22.02.2022',
-  },
-  {
-    id: 3,
-    title: 'Kliendilt saadud ',
-    info: 'Lubab 20.02.2022-ks esimesed sisendid, püüab leida pildid',
-    type: 'Projekti logi',
-    date: '05.03.2022',
-  },
-   {
-    id: 3,
-    title: 'User Interface Designer',
-    info: 'Lubab 20.02.2022-ks esimesed sisendid, püüab leida pildid',
-    type: 'Projekti logi',
-    date: '20.03.2022',
-  },
+
 ]
 
 export default {

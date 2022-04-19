@@ -24,14 +24,11 @@ router.get('/get-partner', (request, response) => {
                         title: 'Uus koduleht domeenile www.airikavettik.ee',
                         status: 'Koostamisel'
                 },{
-                        title: 'Uus koduleht domeenile www.airikapood.ee',
+                        title: 'Hooldustööd domeenile www.airikapood.ee',
                         status: 'Koostamisel'
                 }],
                 offers: [{
-                        title: 'Uus koduleht domeenile www.airikavettik.ee',
-                        status: 'Koostamisel'
-                },{
-                        title: 'Uus koduleht domeenile www.airikapood.ee',
+                        title: 'Hooldustööd domeenile www.airikavettik.ee',
                         status: 'Koostamisel'
                 }]
             },

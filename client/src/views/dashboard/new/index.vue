@@ -107,19 +107,19 @@ const tabs = [
   { name: 'Projekti lõpetamine', href: '#', current: '' },
 ]
 const publishingOptions = [
-  { title: 'Koostamisel', description: 'Hinnapakkumine on koostamisel', current: true , color: 'amber-200'},
-  { title: 'Väljasaadetud', description: 'Hinnapakkumine on väljasaadetud, ootab kliendilt vastust', current: false, color: 'yellow'  },
-  { title: 'Tagasilükatud', description: 'Hinnapakkumine on tagasilükatud.', current: false },
-  { title: 'Kinnitatud', description: 'Hinnapakkumine on heakskiidetud ja võetakse töösse', current: false },
-  { title: 'Kliendilt sisend', description: 'Hinnapakkumine on heakskiidetud ja võetakse töösse', current: false },
-  { title: 'Kujundustööd', description: 'Hinnapakkumine on koostamisel', current: true },
-  { title: 'Arendustööd', description: 'Hinnapakkumine on väljasaadetud, ootab kliendilt vastust', current: false },
-  { title: 'Testimine', description: 'Hinnapakkumine on tagasilükatud.', current: false },
-  { title: 'Parandustööd', description: 'Hinnapakkumine on heakskiidetud ja võetakse töösse', current: false },
-  { title: 'Hooldustööd', description: 'Hinnapakkumine on heakskiidetud ja võetakse töösse', current: false },
-  { title: 'Ootel', description: 'Hinnapakkumine on heakskiidetud ja võetakse töösse', current: false },
-  { title: 'Pausil', description: 'Hinnapakkumine on heakskiidetud ja võetakse töösse', current: false },
-  { title: 'Lõpetatud', description: 'Hinnapakkumine on heakskiidetud ja võetakse töösse', current: false }
+  { title: 'Koostamisel', description: '', current: true , color: 'amber-200'},
+  { title: 'Väljasaadetud', description: '', current: false, color: 'yellow'  },
+  { title: 'Tagasilükatud', description: '', current: false },
+  { title: 'Uus projekt', description: '', current: false },
+  { title: 'Töösse võetud', description: '', current: false },
+  { title: 'Kujundustööd', description: '', current: true },
+  { title: 'Arendustööd', description: '', current: false },
+  { title: 'Testimine', description: '', current: false },
+  { title: 'Ootel', description: '', current: false },
+  { title: 'Pausil', description: '', current: false },
+  { title: 'Lõpetatud', description: '', current: false },
+  { title: 'Parandustööd', description: '', current: false },
+  { title: 'Hooldustööd', description: '', current: false },
 ]
   
 

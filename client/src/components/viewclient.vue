@@ -1,7 +1,7 @@
 <template>
   <TransitionRoot as="template" :show="open">
 
-    <Dialog as="div" class="fixed z-10 inset-0 overflow-y-auto" @close="open = false">
+    <Dialog as="div" class="fixed z-10 inset-0 overflow-y-auto" @close="open = false" id="modal1">
     <!--  -->
       <div class="flex items-end justify-center min-h-screen pt-4 px-10 pb-20 text-center sm:block sm:p-10 ">
         <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in duration-200" leave-from="opacity-100" leave-to="opacity-0">
@@ -24,41 +24,43 @@
                         <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
                           <dl class="sm:divide-y sm:divide-gray-200">
                             
-                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-1 sm:px-2">
+                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">
                                 <dt class="text-sm font-medium text-gray-500">E-mail</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">{{ partner.email}}</dd>
+                                <dd class="text-left mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1"> {{ partner.email }}</dd>
                               </div>
 
-                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-1 sm:px-2">
+                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">
                                 <dt class="text-sm font-medium text-gray-500">Domeen</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">{{ partner.domain }}</dd>
+                                <dd class="text-left mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
+                                <ul v-for="(domain, index) in partner.domains" :key="domain.id" role="list" class="mb-2">
+                                      <div> {{ domain.name }} </div>
+                                    </ul></dd>
                               </div>
 
-                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-1 sm:px-2">
+                              <div  class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">
                                 <dt class="text-sm font-medium text-gray-500">Kontaktisik</dt>
-                                  <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-                                    <ul v-for="(contact, contactIndex) in partner.contact" :key="contactIndex"  role="list">
-                                      <div> {{contact.name}} </div>
-                                      <div> {{contact.email}}  </div>
-                                      <div> +372 {{contact.phone}} </div>
-                                      <div> - </div>
+                                  <dd class="text-left mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
+                                    <ul v-for="(contact, index) in partner.contacts" :key="contact.id" role="list" class="mb-5">
+                                      <div> {{ contact.name }} </div>
+                                      <div> {{ contact.email }}</div>
+                                      <div> +372 {{ contact.phone }}</div>
                                     </ul>
                                   </dd>
 
                               </div>
 
-                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-1 sm:px-2">
+                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">
                                 <dt class="text-sm font-medium text-gray-500">Ettevõttest</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1"> {{ partner.description }}</dd>
+                                <dd class="text-left mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">{{ partner.description }}</dd>
                               </div>
 
-                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-1 sm:px-2">
+                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">
                                 <dt class="text-sm font-medium text-gray-500">Hinnapakkumised</dt>
-                                  <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-                                        <ul role="list" class="border border-gray-200 rounded-md divide-y divide-gray-200">
-                                          <li v-for="(offer, offerIndex) in partner.offers" :key="offerIndex" class="pl-2 pr-2 py-2 flex items-left justify-between text-sm">
-                                            <div class="w-0 flex-1 flex items-center text-left">
-                                              <span class="ml-1 flex-1 w-0 truncate"> {{ offer.title }} </span>
+                                  <dd class="text-sm text-gray-900 sm:mt-0 sm:col-span-1">
+                                        <ul v-for="(offer, index) in partner.offers" :key="offer.id" role="list" class="text-left">
+                                          <li class="pr-2 mb-2  flex items-left justify-between text-sm">
+                                            <div class="w-0 flex-1 flex text-left">
+                                              <span class="flex-1 w-0 truncate"> {{ offer.title }} </span>
                                             </div>
                                             <div class="ml-4 flex-shrink-0">
                                               <button><EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
@@ -68,14 +70,14 @@
                                     </dd>
                                 </div>
 
-                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-1 sm:px-2">
+                              
+                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">
                                 <dt class="text-sm font-medium text-gray-500">Projektid</dt>
                                   <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-                                        <ul role="list" class="border border-gray-200 rounded-md divide-y divide-gray-200">
-                                          <li v-for="(project, projectIndex) in partner.projects" :key="projectIndex" class="pl-2 pr-2 py-2 flex items-left justify-between text-sm">
-                                            <div class="w-0 flex-1 flex items-center text-left">
-                                              <span class="ml-1 flex-1 w-0 truncate"> {{ project.title }} </span>
-                                              <span class="hidden ml-1 flex-1 w-0 truncate"> {{ project.status }} </span>
+                                        <ul v-for="(project, index) in partner.projects" :key="project.id" role="list" class="text-left">
+                                          <li  class="pr-2 mb-2  flex items-left justify-between text-sm">
+                                            <div class="w-0 flex-1 flex text-left">
+                                              <span class="flex-1 w-0 truncate"> {{ project.title}} </span>
                                             </div>
                                             <div class="ml-4 flex-shrink-0">
                                               <button><EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
@@ -83,7 +85,7 @@
                                           </li>
                                         </ul>
                                     </dd>
-                                </div>
+                              </div>
                             </dl>
                     </div>
                   </div>
@@ -102,12 +104,13 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, toRefs } from 'vue'
 import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { PencilIcon, DocumentDownloadIcon, EyeIcon } from '@heroicons/vue/solid'
 import { getPartner } from '../api/partners.js'
 
 export default {
+  name: 'viewclient',
   components: {
     Dialog,
     DialogOverlay,
@@ -119,32 +122,25 @@ export default {
     EyeIcon
   },
   props: ['partner'],
-
+ 
   methods: {
     close() {
       this.$emit('close')
-    }
+    },
   },
 
-  setup() {
-    const open = ref(true)
-    const loading = ref(false)
-    const regcode = computed(() => route.params.regcode);
 
-    const partner = ref([])
-    async function onePartner() {
-      loading.value = true
-      partner.value = await getPartner()
-      loading.value = false
-    }
-    onePartner()
-    
+  setup(props) {
+  
+  const {partner} = toRefs(props)
+
+  console.log(partner)
+
+  const open = ref(true)
 
     return {
-      partner,
-      regcode,
-      loading,
       open,
+      partner
     }
   },
 }

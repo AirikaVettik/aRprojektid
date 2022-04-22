@@ -17,6 +17,10 @@ const schema = new Schema ({
     offers: [{
                 status: { type: String },
                 title: { type: String }
+            }],
+    projects: [{
+                status: { type: String },
+                title: { type: String }
             }]
 })
 

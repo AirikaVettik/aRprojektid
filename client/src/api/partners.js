@@ -5,13 +5,13 @@ export async function getPartners() {
         url: '/api/partner/get-partners',
         method: 'GET'
     })
-    return result.data
+    return result.data.getPartners
 }
 
-export async function getPartner() {
+export async function getPartner(regcode) {
     const result = await axios({
-        url: '/api/partner/get-partner',
+        url: '/api/partner/get-partner/' + regcode,
         method: 'GET'
     })
-    return result.data
+    return result.data.getPartner
 }

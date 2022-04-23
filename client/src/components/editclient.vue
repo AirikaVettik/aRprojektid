@@ -1,21 +1,21 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <div class="px-4 sm:px-6 lg:px-8">
-    <!-- Kliendi andmed -->
-    <div
-      class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
-    >
-      <div class="px-4 py-5 pt-10 flex-auto">
-      <!-- Uus klient --> 
+  <TransitionRoot as="template" :show="open">
+
+    <Dialog as="div" class="fixed z-10 inset-0 overflow-y-auto" @close="open = false">
+    <!--  -->
+      <div class="flex items-end justify-center min-h-screen pt-4 px-10 pb-20 text-center sm:block sm:p-10 ">
+        <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in duration-200" leave-from="opacity-100" leave-to="opacity-0">
+          <DialogOverlay class="fixed inset-0 bg-gray-500 bg-opacity-60 transition-opacity" /> 
+        </TransitionChild>
+
+        <!-- This element is to trick the browser into centering the modal contents. -->
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+
+        <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in duration-200" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+          
+          <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-4xl sm:w-full sm:p-5">
         <div class="mt-10 sm:mt-0">
           <div class="md:grid md:grid-cols-2">
-            <div class="md:col-span-1">
-              <div class="px-4 sm:px-0 pt-4">
-                <h3 class="text-lg font-medium leading-6 text-gray-900">
-                  Uus klient:
-                </h3>
-              </div>
-            </div>
             <div class="mt-5 md:mt-4 md:col-span-6">
 
               <form>
@@ -31,7 +31,7 @@
                         </label>
                         <input
                           type="text"
-                          v-model="form.name"
+                         
                           name="name"
                           id="name"
                           class="mt-1 focus:ring-teal-500 focus:border-teal-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -47,7 +47,7 @@
                         >
                         <input
                           type="text"
-                          v-model="form.regcode"
+                         
                           name="regcode"
                           id="regcode"
                           autocomplete="family-name"
@@ -70,7 +70,7 @@
                           </span>
                           <input
                             type="text"
-                            v-model="form.email"
+                           
                             name="email"
                             id="email"
                             class="focus:ring-teal-500 focus:border-teal-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
@@ -87,7 +87,7 @@
                         >
                         <input
                           type="text"
-                          v-model="form.city"
+                          
                           name="city"
                           id="city"
                           autocomplete="email"
@@ -105,7 +105,7 @@
                           </span>
                           <input
                             type="text"
-                            v-model="form.phone"
+                            
                             name="contact-phone"
                             id="contact-phone"
                             class="focus:ring-teal-500 focus:border-teal-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
@@ -131,7 +131,7 @@
                         >
                         <input
                           type="text"
-                          v-model="form.contacts.name"
+                          
                           name="contact-name"
                           id="contact-name"
                           autocomplete="address-level2"
@@ -154,7 +154,7 @@
                           </span>
                           <input
                             type="text"
-                            v-model="form.contacts.email"
+                            
                             name="contact-email"
                             id="contact-email"
                             class="focus:ring-teal-500 focus:border-teal-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
@@ -172,7 +172,7 @@
                           </span>
                           <input
                             type="text"
-                            v-model="form.contacts.phone"
+                            
                             name="contact-phone"
                             id="contact-phone"
                             class="focus:ring-teal-500 focus:border-teal-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
@@ -183,222 +183,70 @@
                     </div>
                   </div>
     
-                  <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <button
+                  <div class="px-4 py-3 bg-gray-50 text-center sm:px-6">
+                  <button
                       
                       @click="savePartner(form)"
-                      class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
+                      class="w-2/4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
                     >
-                      Salvesta uus klient
+                      Uuenda andmed
                     </button>
+
                   </div>
                 </div>
               </form>
             </div>
           </div>
         </div>
-        <!-- Klientide list --> 
-        <div class="mt-8 flex flex-col">
-          <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div
-              class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8"
-            >
-              <div
-                class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg"
-              >
-                <div v-if="loading">Loading...</div>
-                <table v-else class="min-w-full divide-y divide-gray-300">
-                
-                  <thead class="bg-gray-50 ">
-                    <tr>
-                      <th
-                        scope="col"
-                        class="px-3 py-3.5 w-2/6 text-right text-sm font-semibold text-gray-900"
-                      >
-                        Klient
-                      </th>
-                      <th
-                        scope="col"
-                        class="px-3 py-3.5 w-2/6 text-right text-sm font-semibold text-gray-900"
-                      >
-                        E-mail
-                      </th>
-                      <th
-                        scope="col"
-                        class="px-3 py-3.5 w-2/6 text-right text-sm font-semibold text-gray-900"
-                      >
-                        Kontaktisik
-                      </th>
-                      <th scope="col" class="relative py-3 sm:pr-6">
-                        <span class="sr-only">Vaata</span>
-                      </th>
-                      <th scope="col" class="relative py-3 sm:pr-6">
-                        <span class="sr-only">Muuda</span>
-                      </th>
-                      <th scope="col" class="relative py-3 sm:pr-6">
-                        <span class="sr-only">Kustuta</span>
-                      </th>
-                    </tr>
-                  </thead>
-
-                  <tbody class="text-right divide-y divide-gray-200 bg-white">
-                    <tr
-                      v-for="partner in partners"
-                      :key="partner.regcode"
-                    >
-                      <td
-                        class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
-                      >
-                        <div class="font-medium text-base text-gray-900">
-                          {{ partner.name }}
-                        </div>
-                        <div class="font-medium text-gray-500">
-                          {{ partner.regcode }}
-                        </div>
-                      </td>
-
-                      <td
-                        class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                      >
-                        <div class="text-gray-900">{{ partner.email }}</div>
-                      </td>
-
-                      <td
-                        class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                      >
-                        <div class="text-gray-900">{{ partner.contacts[0].name }}</div>
-                        <div class="text-gray-500">{{ partner.contacts[0].email }}</div>
-                        <div class="text-gray-500">{{ partner.contacts[0].phone }}</div>
-                      </td>
-
-                      <td class="relative whitespace-nowrap text-center pl-4 pr-2">
-                        <div>
-                          <button @click="showPartner(partner.regcode)" >
-                            <EyeIcon
-                              class="flex-shrink-0 h-6 w-6 text-gray-400"
-                              aria-hidden="true"
-                            />
-                          </button>
-                        </div>
-                      </td>
-
-                      <td class="relative whitespace-nowrap text-center pr-2">
-                        <button>
-                          <PencilIcon @click="editPartner(partner)"
-                            class="flex-shrink-0 h-6 w-6 text-gray-400"
-                            aria-hidden="true"
-                          />
-                        </button>
-                      </td>
-
-                      <td class="relative whitespace-nowrap text-center pr-4">
-                        <button @click="delPartner(partner.regcode)">
-                          <XIcon
-                            class="flex-shrink-0 h-6 w-6 text-gray-400"
-                            aria-hidden="true"
-                          />
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+            <div class="mt-5 sm:mt-6 text-center">
+              <button type="button" class="w-1/4 inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-teal-600 text-base font-medium text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:col-start-2 sm:text-sm" @click="close">Sulge</button>
             </div>
           </div>
-        </div>
+        </TransitionChild>
       </div>
-    </div>
-    <Viewclient v-if="display" @close="close" :partner="partner"/>
-    <Editclient v-if="edit" @close="close" :partner="partner" />
-  </div>
+    </Dialog>
+  </TransitionRoot>
 </template>
 
 <script>
-import { ref , reactive } from "vue";
-import { useField, useForm,  } from 'vee-validate';
-import { PencilIcon, EyeIcon, XIcon } from "@heroicons/vue/solid";
-import Viewclient from "../../../components/viewclient.vue";
-import Editclient from "../../../components/editclient.vue"
-import { getPartners, getPartner, addPartner, deletePartner } from "../../../api/partners.js";
+import { ref, toRefs } from 'vue'
+import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
+import { PencilIcon, DocumentDownloadIcon, EyeIcon } from '@heroicons/vue/solid'
+
 
 export default {
+  name: 'viewclient',
   components: {
+    Dialog,
+    DialogOverlay,
+    DialogTitle,
+    TransitionChild,
+    TransitionRoot,
     PencilIcon,
-    EyeIcon,
-    XIcon,
-    Viewclient,
-    Editclient,
+    DocumentDownloadIcon,
+    EyeIcon
   },
-
+  props: ['partner'],
+ 
   methods: {
     close() {
-      this.display = false;
+      this.$emit('close')
     },
   },
 
-  setup() {
-    const loading = ref(false);
-    const display = ref(false);
-    const edit = ref(false);
 
-    const partners = ref([]);
-    const partner = ref([]);
+  setup(props) {
+  
+  const {partner} = toRefs(props)
 
-    async function allPartners() {
-      loading.value = true;
-      partners.value = await getPartners();
-      loading.value = false;
-    }
-    allPartners();
+  console.log(partner)
 
-    const showPartner = async (regcode) => {
-      display.value = true;
-      partner.value = await getPartner(regcode);
-    }
-
-    const form = reactive({
-      name: '',
-      regcode: '',
-      city: '',
-      email: '',
-      phone: '',
-      contacts: {
-        name: '',
-        email: '',
-        phone: ''
-      }
-    })
-
-    const savePartner = async(form) => {
-      form.value = await addPartner(form)
-      partners.value = await getPartners();  
-      form.value.value = ''
-    } 
-
-    const delPartner = async (regcode) => {
-      partner.value = await deletePartner(regcode)
-      partners.value = await getPartners();
-    }
-
-    const editPartner = async (partner) => {
-      edit.value = true 
-      console.log(edit)
-    }
-
-
+  const open = ref(true)
 
     return {
-      partners,
-      partner,
-      display,
-      showPartner,
-      delPartner,
-      form,
-      savePartner,
-      loading,
-      edit,
-      editPartner,
-    };
+      open,
+      partner
+    }
   },
-};
+}
 </script>

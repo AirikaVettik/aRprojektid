@@ -15,3 +15,12 @@ export async function getPartner(regcode) {
     })
     return result.data.getPartner
 }
+
+export async function addPartner(form) {
+    const result = await axios({
+        url: '/api/partner/add-partner/',
+        method: 'POST',
+        headers: {},
+        data: form
+    },)
+} 

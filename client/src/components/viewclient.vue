@@ -1,7 +1,7 @@
 <template>
   <TransitionRoot as="template" :show="open">
 
-    <Dialog as="div" class="fixed z-10 inset-0 overflow-y-auto" @close="open = false" id="modal1">
+    <Dialog as="div" class="fixed z-10 inset-0 overflow-y-auto" @close="open = false">
     <!--  -->
       <div class="flex items-end justify-center min-h-screen pt-4 px-10 pb-20 text-center sm:block sm:p-10 ">
         <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in duration-200" leave-from="opacity-100" leave-to="opacity-0">
@@ -25,20 +25,21 @@
                           <dl class="sm:divide-y sm:divide-gray-200">
                             
                               <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">
-                                <dt class="text-sm font-medium text-gray-500">E-mail</dt>
+                                <dt class="text-sm font-medium text-gray-500">Ettevõtte e-mail</dt>
                                 <dd class="text-left mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1"> {{ partner.email }}</dd>
+                              </div>
+                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">
+                                <dt class="text-sm font-medium text-gray-500">Ettevõtte kontakttelefon</dt>
+                                <dd class="text-left mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1"> +372 {{ partner.phone }}</dd>
                               </div>
 
                               <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">
-                                <dt class="text-sm font-medium text-gray-500">Domeen</dt>
-                                <dd class="text-left mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-                                <ul v-for="(domain, index) in partner.domains" :key="domain.id" role="list" class="mb-2">
-                                      <div> {{ domain.name }} </div>
-                                    </ul></dd>
+                                <dt class="text-sm font-medium text-gray-500"> Tegevuskoht (linn)</dt>
+                                <dd class="text-left mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1"> {{ partner.city }}</dd>
                               </div>
 
                               <div  class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">
-                                <dt class="text-sm font-medium text-gray-500">Kontaktisik</dt>
+                                <dt class="text-sm font-medium text-gray-500">Kontaktisik(ud)</dt>
                                   <dd class="text-left mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
                                     <ul v-for="(contact, index) in partner.contacts" :key="contact.id" role="list" class="mb-5">
                                       <div> {{ contact.name }} </div>
@@ -47,11 +48,6 @@
                                     </ul>
                                   </dd>
 
-                              </div>
-
-                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">
-                                <dt class="text-sm font-medium text-gray-500">Ettevõttest</dt>
-                                <dd class="text-left mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">{{ partner.description }}</dd>
                               </div>
 
                               <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">

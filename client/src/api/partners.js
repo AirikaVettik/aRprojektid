@@ -24,3 +24,10 @@ export async function addPartner(form) {
         data: form
     },)
 } 
+
+export async function deletePartner(regcode) {
+    const result = await axios({
+        url: '/api/partner/delete-partner/' + regcode,
+        method: 'DELETE'
+    })
+}

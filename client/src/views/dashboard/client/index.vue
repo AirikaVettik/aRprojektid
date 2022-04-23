@@ -6,6 +6,7 @@
       class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
     >
       <div class="px-4 py-5 pt-10 flex-auto">
+      <!-- Uus klient --> 
         <div class="mt-10 sm:mt-0">
           <div class="md:grid md:grid-cols-2">
             <div class="md:col-span-1">
@@ -17,7 +18,7 @@
             </div>
             <div class="mt-5 md:mt-4 md:col-span-6">
 
-              <form @submit.prevent>
+              <form>
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                   <div class="px-4 py-5 bg-white space-y-6 sm:p-8">
                     <div class="grid grid-cols-6 gap-4">
@@ -291,7 +292,7 @@
                       </td>
 
                       <td class="relative whitespace-nowrap text-center pr-4">
-                        <button>
+                        <button @click="delPartner(partner.regcode)">
                           <XIcon
                             class="flex-shrink-0 h-6 w-6 text-gray-400"
                             aria-hidden="true"
@@ -316,7 +317,7 @@ import { ref , reactive } from "vue";
 import { useField, useForm,  } from 'vee-validate';
 import { PencilIcon, EyeIcon, XIcon } from "@heroicons/vue/solid";
 import Viewclient from "../../../components/viewclient.vue";
-import { getPartners, getPartner, addPartner } from "../../../api/partners.js";
+import { getPartners, getPartner, addPartner, deletePartner } from "../../../api/partners.js";
 
 export default {
   components: {
@@ -366,8 +367,14 @@ export default {
 
     const savePartner = async(form) => {
       form.value = await addPartner(form)
-      partners.value = await getPartners();
+      partners.value = await getPartners();  
+      form.value.value = ''
     } 
+
+    const delPartner = async (regcode) => {
+      partner.value = await deletePartner(regcode)
+      partners.value = await getPartners();
+    }
 
 
     return {
@@ -375,6 +382,7 @@ export default {
       partner,
       display,
       showPartner,
+      delPartner,
       form,
       savePartner,
       loading,

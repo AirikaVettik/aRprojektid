@@ -11,13 +11,13 @@ const { getPartners,
 
 router.get('/get-partners', getPartners )
 
-router.get('/get-partner/:regcode', getPartner )
+router.get('/get-partner/:id', getPartner )
 
 router.post('/add-partner', addPartner )
 
-router.delete('/delete-partner/:regcode', deletePartner)
+router.delete('/delete-partner/:id', deletePartner)
 
-router.patch('/update-partner/:regcode', updatePartner)
+router.patch('/update-partner/:id', updatePartner)
 
 
 module.exports = router

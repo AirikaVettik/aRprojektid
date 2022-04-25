@@ -31,11 +31,11 @@
                         </label>
                         <input
                           type="text"
-                         
+                          v-model="newData.name"
                           name="name"
                           id="name"
                           class="mt-1 focus:ring-teal-500 focus:border-teal-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                          placeholder="aRfoto OÜ"
+                          
                         />
                       </div>
 
@@ -47,12 +47,12 @@
                         >
                         <input
                           type="text"
-                         
+                          v-model="newData.regcode"
                           name="regcode"
                           id="regcode"
                           autocomplete="family-name"
                           class="mt-1 focus:ring-teal-500 focus:border-teal-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                          placeholder="12838033"
+                          
                         />
                       </div>
 
@@ -70,11 +70,11 @@
                           </span>
                           <input
                             type="text"
-                           
+                            v-model="newData.email"
                             name="email"
                             id="email"
                             class="focus:ring-teal-500 focus:border-teal-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                            placeholder="info@airikavettik.ee"
+                            
                           />
                         </div>
                       </div>
@@ -87,12 +87,12 @@
                         >
                         <input
                           type="text"
-                          
+                          v-model="newData.city"
                           name="city"
                           id="city"
                           autocomplete="email"
                           class="mt-1 focus:ring-teal-500 focus:border-teal-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                          placeholder="Tõrva"
+                         
                         />
                       </div>
 
@@ -105,25 +105,25 @@
                           </span>
                           <input
                             type="text"
-                            
+                            v-model="newData.phone"
                             name="contact-phone"
                             id="contact-phone"
                             class="focus:ring-teal-500 focus:border-teal-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                            placeholder="59194429"
+                           
                           />
                         </div>
                       </div>
-
-
-                
+                  </div>
+                    
                       <div class="col-span-6">
                         <label
                           class="mt-10 block text-sm font-medium text-gray-700"
-                          >Kontaktisik</label
+                          >Kontaktisik(ud)</label
                         >
                       </div>
-  
-                      <div class="col-span-6 sm:col-span-2 lg:col-span-2">
+                      <div v-for="contact in newData.contacts" :key="contact._id" class="grid grid-cols-7 gap-2">
+                      
+                      <div class="col-span-7 sm:col-span-2 lg:col-span-2">
                         <label
                           for="city"
                           class="block text-sm font-medium text-gray-700"
@@ -131,16 +131,16 @@
                         >
                         <input
                           type="text"
-                          
+                          v-model="contact.name"
                           name="contact-name"
                           id="contact-name"
                           autocomplete="address-level2"
                           class="mt-1 focus:ring-teal-500 focus:border-teal-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                          placeholder="Airika Vettik"
+                          
                         />
                       </div>
 
-                      <div class="col-span-6 sm:col-span-2 lg:col-span-2">
+                      <div class="col-span-7 sm:col-span-2 lg:col-span-2">
                         <label
                           for="region"
                           class="block text-sm font-medium text-gray-700"
@@ -154,16 +154,16 @@
                           </span>
                           <input
                             type="text"
-                            
+                            v-model="contact.email"
                             name="contact-email"
                             id="contact-email"
                             class="focus:ring-teal-500 focus:border-teal-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                            placeholder="airika@airikavettik.ee"
+                            
                           />
                         </div>
                       </div>
 
-                      <div class="col-span-6 sm:col-span-2 lg:col-span-2">
+                      <div class="col-span-7 sm:col-span-2 lg:col-span-2">
                         <label class="block text-sm font-medium text-gray-700">Telefon</label>
                         
                         <div class="mt-1 flex rounded-md shadow-sm">
@@ -172,21 +172,42 @@
                           </span>
                           <input
                             type="text"
-                            
+                            v-model="contact.phone"
                             name="contact-phone"
                             id="contact-phone"
                             class="focus:ring-teal-500 focus:border-teal-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                            placeholder="59194429"
+                            
                           />
                         </div>
                       </div>
-                    </div>
+
+                      <div class="col-span-7 sm:col-span-1 lg:col-span-1 justify-self-center self-end">
+        
+                        <button @click="delContact">
+                          <XIcon
+                            class="flex-shrink-0 h-6 w-6 text-gray-400"
+                            aria-hidden="true"
+                          />
+                        </button>
+                      </div>
+                      
                   </div>
-    
+
+                   <div class="">
+                  <button
+                      
+                      class="w-10 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
+                    >
+                      +
+                    </button>
+
+                  </div>
+              </div>
+
                   <div class="px-4 py-3 bg-gray-50 text-center sm:px-6">
                   <button
                       
-                      @click="savePartner(form)"
+                      @click="editPartner(editpartner.id)"
                       class="w-2/4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
                     >
                       Uuenda andmed
@@ -199,7 +220,11 @@
           </div>
         </div>
             <div class="mt-5 sm:mt-6 text-center">
-              <button type="button" class="w-1/4 inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-teal-600 text-base font-medium text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:col-start-2 sm:text-sm" @click="close">Sulge</button>
+              <button type="button" class="w-1/4 inline-flex justify-center rounded-md border 
+              border-transparent shadow-sm px-4 py-2 bg-teal-600 text-base 
+              font-medium text-white hover:bg-teal-700 focus:outline-none 
+              focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:col-start-2 
+              sm:text-sm" @click="close">Sulge</button>
             </div>
           </div>
         </TransitionChild>
@@ -209,9 +234,10 @@
 </template>
 
 <script>
-import { ref, toRefs } from 'vue'
+import { ref, toRefs, reactive } from 'vue'
 import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
-import { PencilIcon, DocumentDownloadIcon, EyeIcon } from '@heroicons/vue/solid'
+import { PencilIcon, DocumentDownloadIcon, EyeIcon, XIcon } from '@heroicons/vue/solid'
+import { updatePartner  } from "../api/partners.js";
 
 
 export default {
@@ -224,28 +250,36 @@ export default {
     TransitionRoot,
     PencilIcon,
     DocumentDownloadIcon,
-    EyeIcon
+    EyeIcon,
+    XIcon,
   },
-  props: ['partner'],
- 
-  methods: {
-    close() {
-      this.$emit('close')
-    },
-  },
-
-
-  setup(props) {
+  props: ['editpartner'],
   
-  const {partner} = toRefs(props)
+  setup(props, { emit }) {
+  
+  const { editpartner } = toRefs(props)
 
-  console.log(partner)
+  const newData = editpartner
 
   const open = ref(true)
+  const edit = ref(true)
+
+  function close() {
+    emit('close')
+  }
+
+  function editPartner(id) {
+    emit('editPartner', newData.value)
+  }
 
     return {
       open,
-      partner
+      close,
+      editPartner,
+      editpartner,
+      edit,
+      regcode,
+      newData
     }
   },
 }

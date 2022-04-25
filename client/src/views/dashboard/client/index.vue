@@ -273,7 +273,7 @@
 
                       <td class="relative whitespace-nowrap text-center pl-4 pr-2">
                         <div>
-                          <button @click="showPartner(partner.regcode)" >
+                          <button @click="showPartner(partner.id)" >
                             <EyeIcon
                               class="flex-shrink-0 h-6 w-6 text-gray-400"
                               aria-hidden="true"
@@ -284,7 +284,7 @@
 
                       <td class="relative whitespace-nowrap text-center pr-2">
                         <button>
-                          <PencilIcon @click="editPartner(partner)"
+                          <PencilIcon @click="dataPartner(partner.id)"
                             class="flex-shrink-0 h-6 w-6 text-gray-400"
                             aria-hidden="true"
                           />
@@ -292,7 +292,7 @@
                       </td>
 
                       <td class="relative whitespace-nowrap text-center pr-4">
-                        <button @click="delPartner(partner.regcode)">
+                        <button @click="delPartner(partner.id)">
                           <XIcon
                             class="flex-shrink-0 h-6 w-6 text-gray-400"
                             aria-hidden="true"
@@ -309,17 +309,17 @@
       </div>
     </div>
     <Viewclient v-if="display" @close="close" :partner="partner"/>
-    <Editclient v-if="edit" @close="close" :partner="partner" />
+    <Editclient v-if="edit" @close="close" @editPartner="editPartner" :editpartner="editpartner" />
   </div>
 </template>
 
 <script>
-import { ref , reactive } from "vue";
+import { ref , toRefs, reactive,} from "vue";
 import { useField, useForm,  } from 'vee-validate';
 import { PencilIcon, EyeIcon, XIcon } from "@heroicons/vue/solid";
 import Viewclient from "../../../components/viewclient.vue";
 import Editclient from "../../../components/editclient.vue"
-import { getPartners, getPartner, addPartner, deletePartner } from "../../../api/partners.js";
+import { getPartners, getPartner, addPartner, deletePartner, updatePartner } from "../../../api/partners.js";
 
 export default {
   components: {
@@ -330,12 +330,6 @@ export default {
     Editclient,
   },
 
-  methods: {
-    close() {
-      this.display = false;
-    },
-  },
-
   setup() {
     const loading = ref(false);
     const display = ref(false);
@@ -343,6 +337,7 @@ export default {
 
     const partners = ref([]);
     const partner = ref([]);
+    const editpartner = ref([])
 
     async function allPartners() {
       loading.value = true;
@@ -351,9 +346,14 @@ export default {
     }
     allPartners();
 
-    const showPartner = async (regcode) => {
+    async function close() {
+      display.value = false;
+      edit.value = false;
+    }
+
+    const showPartner = async (id) => {
       display.value = true;
-      partner.value = await getPartner(regcode);
+      partner.value = await getPartner(id);
     }
 
     const form = reactive({
@@ -375,17 +375,26 @@ export default {
       form.value.value = ''
     } 
 
-    const delPartner = async (regcode) => {
-      partner.value = await deletePartner(regcode)
+    const delPartner = async (id) => {
+      partner.value = await deletePartner(id)
       partners.value = await getPartners();
     }
 
-    const editPartner = async (partner) => {
+    const dataPartner = async (id) => {
       edit.value = true 
+      editpartner.value = await getPartner(id)
       console.log(edit)
     }
 
-
+    async function editPartner(newData) {
+      edit.value = false 
+      const id  = newData.id
+      console.log(id)
+      console.log(newData)
+      newData.value = await updatePartner(id, newData)
+      partners.value = await getPartners();
+      
+    }
 
     return {
       partners,
@@ -397,7 +406,10 @@ export default {
       savePartner,
       loading,
       edit,
+      editpartner,
+      dataPartner,
       editPartner,
+      close,  
     };
   },
 };

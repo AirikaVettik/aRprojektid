@@ -8,12 +8,12 @@ export async function getDocuments() {
     return result.data.getDocuments
 }
 
-export async function getDocument() {
+export async function getDocument(id) {
     const result = await axios({
-        url: '/api/document/get-document' + id,
+        url: '/api/document/get-document/' + id,
         method: 'GET'
     })
-    return result.data
+    return result.data.getDocument
 }
 
 export async function getOffers() {

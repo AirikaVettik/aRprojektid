@@ -119,14 +119,10 @@ export default {
   },
   props: ['partner'],
  
-  methods: {
-    close() {
-      this.$emit('close')
-    },
-  },
 
 
-  setup(props) {
+
+  setup(props, { emit }) {
   
   const {partner} = toRefs(props)
 
@@ -134,9 +130,14 @@ export default {
 
   const open = ref(true)
 
+  function close() {
+    emit('close')
+  }
+
     return {
       open,
-      partner
+      partner,
+      close
     }
   },
 }

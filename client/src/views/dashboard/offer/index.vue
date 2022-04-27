@@ -14,13 +14,13 @@
     <div class="border-b border-gray-200">
       <nav class="-mb-px-3 flex pt-10 uppercase" aria-label="Tabs">
         
-        <a v-on:click="toggleTabs(1)" v-bind:class="{'border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm truncate': openTab === 1, 
+        <a v-on:click="toggleTabs(1)" @click="Drafts" v-bind:class="{'border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm truncate': openTab === 1, 
         'border-transparent text-gray-500 hover:text-teal-700 hover:border-gray-300 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm truncate': openTab !== 1}"> Koostamisel </a>
 
-        <a v-on:click="toggleTabs(2)" v-bind:class="{'border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm truncate': openTab === 2, 
+        <a v-on:click="toggleTabs(2)" @click="Sendout" v-bind:class="{'border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm truncate': openTab === 2, 
         'border-transparent text-gray-500 hover:text-teal-700 hover:border-gray-300 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm truncate': openTab !== 2}"> Väljasaadetud </a>
 
-        <a v-on:click="toggleTabs(3)"  v-bind:class="{'border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm truncate': openTab === 3, 
+        <a v-on:click="toggleTabs(3)" @click="All" v-bind:class="{'border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm truncate': openTab === 3, 
         'border-transparent text-gray-500 hover:text-teal-700 hover:border-gray-300 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm truncate': openTab !== 3}"> Kõik </a>
 
       </nav>
@@ -48,33 +48,33 @@
                             </tr>
                           </thead>
                           <tbody class="divide-y divide-gray-200 bg-white">
-                            <tr v-for="(draft, offerIndex) in offersdraft" :key="offerIndex">
+                            <tr v-for="(offer, offerIndex) in offersdraft" :key="offerIndex">
 
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">{{ draft.object }}</span>
+                                <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">{{ offer.object }}</span>
                               </td>
 
                               <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                <div class="text-gray-900">{{ draft.sellmanager }}</div>
+                                <div class="text-gray-900">{{ offer.sellmanager }}</div>
                               </td>
 
                               <td class="whitespace-nowrap py-4 pl-2 pr-2 text-sm sm:pl-2">
                                 <div class="flex items-center">
                                   <div class="ml-4">
-                                    <div class="font-medium text-gray-900">{{ draft.partner }}</div>
-                                    <div class="text-gray-500">{{ draft.contact }}</div>
+                                    <div class="font-medium text-gray-900">{{ offer.partner }}</div>
+                                    <div class="text-gray-500">{{ offer.contact }}</div>
                                   </div>
                                 </div>
                               </td>
 
                               <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                <div class="text-gray-900">{{ draft.title}}</div>
+                                <div class="text-gray-900">{{ offer.title}}</div>
                               </td>
 
-                              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ draft.subStatus }}</td>
+                              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ offer.subStatus }}</td>
 
                               <td class="relative whitespace-nowrap text-center px-2">
-                                <button @click="showOffer">
+                                <button @click="showOffer(offer.id)">
                                 <EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
                                 </button>
                               </td>
@@ -145,7 +145,7 @@
                               <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ offer.subStatus }}</td>
 
                               <td class="relative whitespace-nowrap text-center px-2">
-                                <button @click="showOffer">
+                                <button @click="showOffer(offer.id)">
                                 <EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
                                 </button>
                               </td>
@@ -216,7 +216,7 @@
                               <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ offer.subStatus }}</td>
 
                               <td class="relative whitespace-nowrap text-center px-2">
-                                <button @click="showOffer">
+                                <button @click="showOffer(offer.id)">
                                 <EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
                                 </button>
                               </td>
@@ -241,10 +241,11 @@
                   </div>
                  </div>
             </div>
-    <Viewo v-if="displayoffer"  @close="closeOffer"/>
+
+
   
 </div>
-
+<Viewo v-if="displayoffer"  @close="closeOffer" :offer="offer"/>
 </template>
 
 
@@ -252,7 +253,7 @@
 import router from '../../../router'
 import { ref } from 'vue'
 import { PencilIcon, DocumentDownloadIcon, EyeIcon, DocumentDuplicateIcon } from '@heroicons/vue/solid'
-import { getOffers, getOffersDraft, getOffersSendout } from '../../../api/documents.js'
+import { getDocument, getOffers, getOffersDraft, getOffersSendout } from '../../../api/documents.js'
 import Viewo from '../../../components/viewo.vue'
 
 export default {
@@ -264,40 +265,28 @@ export default {
     Viewo,
    
   },
-
-  data() {
-    return { 
-      displayoffer: false,
-      openTab: 1
-    }
-  },
-
-  methods: {
-    showOffer() {
-      console.log()
-      this.displayoffer = true
-    },
-    closeOffer() {
-      this.displayoffer = false
-    },
-    toggleTabs: function(tabNumber){
-      this.openTab = tabNumber
-    }  },
     
   setup() {
+    const displayoffer = ref(false)
     const loading = ref(false)
+    const openTab = ref(1)
 
     const offers = ref ([])
+    const offer = ref([])
     const offersdraft = ref([])
     const offerssendout = ref([])
 
-    async function allOffers() {
-      loading.value = true;
-      offers.value = await getOffers();
-      loading.value = false;
+    const showOffer = async(id)  => {
+      displayoffer.value = true
+      offer.value = await getDocument(id)
     }
-    allOffers();
+    const closeOffer = async()=> {
+      displayoffer.value = false
+    }
 
+    const toggleTabs = async(tabNumber) =>{
+      openTab.value = tabNumber
+    }
     async function allOffersDraft() {
       loading.value = true;
       offersdraft.value = await getOffersDraft();
@@ -305,19 +294,32 @@ export default {
     }
     allOffersDraft();
 
-    async function allOffersSendout() {
+    const All = async() => {
+      loading.value = true;
+      offers.value = await getOffers();
+      loading.value = false;
+    }
+
+   const Sendout = async() => {
       loading.value = true;
       offerssendout.value = await getOffersSendout();
       loading.value = false;
     }
-    allOffersSendout();
 
 
 
     return {
       offers,
+      offer,
       offersdraft,
       offerssendout,
+      openTab,
+      toggleTabs,
+      displayoffer,
+      showOffer,
+      closeOffer,
+      Sendout,
+      All,
       loading
     }
   },

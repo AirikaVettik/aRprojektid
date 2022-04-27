@@ -1,139 +1,7 @@
 <template>
 
           <div>
-            <div>
-              <div class="mt-1 l-2 text-left sm:mt-0">
-                <DialogTitle as="h3" class="text-xl leading-6 font-bold text-gray-900">  </DialogTitle>
-                <p class="mt-1 text-xl text-gray-500"> </p>
 
-                <div>
-                    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-                        <div class="border-t border-gray-200 px-2 py-2 sm:p-0">
-                          <dl class="sm:divide-y sm:divide-gray-200">
-                          <!-- Pakkumise nimi, staatus,  müügijuht, projekti kestvus, projekti algus, domeen, klient, kontaktisik, ettevõttest -->
-                                  <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-                                  
-
-                                                <div class="px-4 py-5 sm:px-6">
-                                                  <h3 class="text-lg leading-6 font-medium text-gray-900">{{offer.title}}</h3>
-                                                  <p class="mt-1 max-w-2xl text-sm text-gray-500">{{offer.status}}</p>
-                                                </div>
-                                                <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
-                                                  <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
-                                                    <div class="sm:col-span-1">
-                                                      <dt class="text-sm font-medium text-gray-500">Müügijuht</dt>
-                                                      <dd class="mt-1 text-sm text-gray-900">{{ offer.sellmanager }}</dd>
-                                                    </div>
-                                                    <div class="sm:col-span-1">
-                                                      <dt class="text-sm font-medium text-gray-500">Projekti kestvus</dt>
-                                                      <dd class="mt-1 text-sm text-gray-900"> {{ offer.period }} </dd>
-                                                    </div>
-                                                    <div class="sm:col-span-1">
-                                                      <dt class="text-sm font-medium text-gray-500">Projektiga saab alustada</dt>
-                                                      <dd class="mt-1 text-sm text-gray-900"> {{ offer.start }} </dd>
-                                                    </div>
-                                                    <div class="sm:col-span-1">
-                                                      <dt class="text-sm font-medium text-gray-500">Domeen</dt>
-                                                      <dd v-for="client in offer.partner" class="mt-1 text-sm text-gray-900"> {{ client.domain }} </dd>
-                                                    </div>
-                                                    <div class="sm:col-span-1">
-                                                      <dt class="text-sm font-medium text-gray-500">Klient</dt>
-                                                      <dd v-for="client in offer.partner" class="mt-1 text-sm text-gray-900"> {{ client.name}} </dd>
-                                                    </div>
-                                                    <div class="sm:col-span-1">
-                                                      <dt class="text-sm font-medium text-gray-500">Kontaktisik</dt>
-                                                      <dd v-for="client in offer.partner" class="mt-1 text-sm text-gray-900"> {{ client.contact}} </dd>
-                                                    </div>
-                                                    <div class="sm:col-span-2">
-                                                      <dt class="text-sm font-medium text-gray-500">Ettevõttest</dt>
-                                                      <dd v-for="client in offer.partner" class="mt-1 text-sm text-gray-900">{{ client.description }}</dd>
-                                                    </div>
-
-
-                                               <!-- Hinnapakkumise sisu -->
-                                                    <h1 class="mt-5 text-xm font-semibold text-gray-900 uppercase"> Hinnapakkumise sisu </h1>
-                                                    <div v-for="offer in offer.offer" class="sm:col-span-2">
-                                                      <dt class="mt-5 text-sm font-medium text-gray-500"> {{ offer.name }} </dt>
-                                                      <dd class="mt-1 text-sm text-gray-900">{{ offer.description }}</dd>
-
-                                                          <div class="py-4 sm:py-5 grid justify-items-end ">
-                                                                <table class="divide-y divide-gray-500 sm:col-span-1 ">
-                                                                            <thead>
-                                                                            <tr>
-                                                                                <th class=" w-1/6 px-1 text-right text-sm font-semibold text-gray-900 sm:table-cell">Tunnid (h) </th>
-                                                                                <th class=" w-1/6 px-1 text-right text-sm font-semibold text-gray-900 sm:table-cell">Hind (€/h)</th>
-                                                                                <th class=" w-1/6 py-1 text-right text-sm font-semibold text-gray-900 sm:table-cell">Kokku (€)</th>
-                                                                            </tr>
-                                                                            </thead>
-                                                                            
-                                                                            <tbody>
-                                                                            <tr>
-                                                                                <td class=" py- px-2 text-right text-sm text-gray-500 sm:table-cell"> {{offer.hours}} </td>
-                                                                                <td class=" py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{offer.price}} </td>
-                                                                                <td class=" py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{offer.total}} </td>
-                                                                            </tr>
-                                                                            </tbody>
-                                                                </table>
-                                                            </div>
-
-                                                    </div> 
-
-                                       <!-- Tingimused -->
-                                                    <div class="sm:col-span-2">
-                                                      <dt class="text-sm font-medium text-gray-500">Tingimused</dt>
-                                                      <dd v-for="client in offer.partner" class="mt-1 text-sm text-gray-900">{{ offer.conditions }}</dd>
-                                                    </div>
-                                                    </dl>
-                                                    </div>
-                                                      </div>
-    
-                          
-                          <!-- Arvutused - töötunnid, ettemaks ja lõpphind -->
-                              <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-1 sm:px-2">
-                                <dt class="text-sm font-medium text-gray-500"></dt>
-                                  <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                <table class="min-w-full divide-y divide-gray-300">
-                                
-                                <div class="py-2 ml-auto w-full sm:w-full lg:w-2/4">
-                                    <div class="flex justify-between mb-5 place-items-end">
-                                        <div class="text-gray-900 text-right flex-1">Töötunnid </div>
-                                        <div class="text-right w-40">
-                                            <div class="text-lg text-gray-800">{{offer.totalhours}}h</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex justify-between mb-5 place-items-end">
-                                        <div class="text-gray-900 text-right flex-1">Projekti ettemaks</div>
-                                        <div class="text-right w-40">
-                                            <div class="text-lg text-gray-800">{{offer.prepayment}}</div>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="py-2 border-t border-b">
-                                        <div class="flex justify-between place-items-end ">
-                                            <div class="text-xl text-gray-900 text-right flex-1 uppercase ">Projekti hind</div>
-                                            <div class="text-right w-40">
-                                                <div class="text-xl text-gray-800 font-bold">{{offer.total}}€</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div>
-
-                              
-                                </table>
-                                </dd>
-                                </div>
-
-                              </dl>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-             <!-- Lae alla hinnapakkumine-->
-            <div class="mt-2 sm:mt-6 grid sm:grid-cols-1 text-center px-10 ">
-                <div class="pb-3 pt-3"><button type="button" class="w-1/2 inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-teal-600 text-base font-medium text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 sm:col-start-2 sm:text-sm">Lae alla .pdf</button></div>
-            </div>
           </div>
  
 </template>
@@ -156,8 +24,7 @@ export default {
     DocumentDownloadIcon,
     EyeIcon
   },
-
-
+  
   setup() {
     const open = ref(true)
     const loading = ref(false)

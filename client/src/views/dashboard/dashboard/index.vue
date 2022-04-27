@@ -171,38 +171,10 @@ import {
   EyeIcon,
   DocumentDuplicateIcon,
 } from "@heroicons/vue/solid";
-import { getOffers } from "../../../api/offers.js";
-import { getProjects } from '../../../api/projects.js'
+
 import Viewo from "../../../components/viewo.vue";
 import Viewp from "../../../components/viewp.vue";
 
-const people = [
-  {
-    client: "aRfoto OÜ",
-    title: "Uus koduleht domeenile www.airikavettik.ee",
-    contact: "Airika Vettik",
-    status: "Koostamisel",
-  },
-  {
-    client: "Estonian Business OÜ",
-    title: "Uus e-pood domeenile www.eb.com",
-    contact: "Mihkel Tõrva",
-    status: "Väljasaadetud",
-  },
-  {
-    client: "Raindesign OÜ",
-    title: "Uus e-pood domeenile www.raindesign.ee",
-    contact: "Rain Tõrva",
-    status: "Väljasaadetud",
-  },
-  {
-    client: "Janika OÜ",
-    title: "Uus koduleht domeenile www.raindesign.ee",
-    contact: "Janika Valga",
-    status: "Tagasilükatud",
-  },
-  // More people...
-];
 
 export default {
   components: {
@@ -232,27 +204,11 @@ export default {
   setup() {
     const loading = ref(false);
 
-    const offers = ref([]);
-    async function allOffers() {
-      loading.value = true;
-      offers.value = await getOffers();
-      loading.value = false;
-    }
-    allOffers();
 
-    // Hinnapakkumised, millel on staatus "UUS PROJEKT"
-    const projects = ref ([])
-    async function allProjects() {
-      loading.value = true
-      projects.value = await getProjects()
-      loading.value = false
-    }
-    allProjects()
 
     return {
-      people,
-      offers,
-      projects,
+
+
       loading,
     };
   },

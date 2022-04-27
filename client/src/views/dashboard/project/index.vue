@@ -62,10 +62,10 @@
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ project.manager }}</td>
                   
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                    <div class="text-gray-900">{{ project.project }}</div>
+                    <div class="text-gray-900">{{ project.title }}</div>
                   </td>
 
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ project.status }}</td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ project.subStatus }}</td>
 
                   <td class="whitespace-nowrap py-4 pr-2 text-sm ">
                     <div class="flex items-center">
@@ -100,40 +100,8 @@
 import { ref } from 'vue'
 import router from '../../../router'
 import { PencilIcon, EyeIcon } from '@heroicons/vue/solid'
-import { getProjects } from '../../../api/projects.js'
+import { getProjects } from '../../../api/documents.js'
 import Viewp from '../../../components/viewp.vue'
-
-const people = [
-  {
-    client: 'aRfoto OÜ',
-    contact: 'Airika Vettik',
-    title: 'Uus koduleht domeenile www.airikavettik.ee',
-    manager: 'Juhan Klaas',
-    status: 'Kliendi sisendi ootel',
-  },
-    {
-    client: 'Estonian Business OÜ',
-    contact: 'Mihkel Tõrva',
-    title: 'Uus e-pood domeenile www.eb.com',
-    manager: 'Mari Maasikas',
-    status: 'Pausil'
-  },
-    {
-    client: 'Raindesign OÜ',
-    contact: 'Rain Tõrva',
-    title: 'Uus e-pood domeenile www.raindesign.ee',
-    manager: 'Airika Vettik',
-    status: 'Arendustööd'
-  },
-    {
-    client: 'Janika OÜ',
-    contact: 'Janika Valga',
-    title: 'Uus koduleht domeenile www.raindesign.ee',
-    manager: 'Airika Vettik',
-    status: 'Kujundustööd'
-  },
-  // More people...
-]
 
 export default {
   components: {
@@ -164,15 +132,16 @@ export default {
     const loading = ref(false)
 
     const projects = ref ([])
+
     async function allProjects() {
-      loading.value = true
-      projects.value = await getProjects()
-      loading.value = false
+      loading.value = true;
+      projects.value = await getProjects();
+      loading.value = false;
     }
-    allProjects()
+    allProjects();
+    
 
     return {
-      people,
       projects,
       loading
     }

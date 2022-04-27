@@ -11,8 +11,8 @@ import Calendar from '../views/dashboard/calendar/index.vue'
 
 const routes = [
     { path: '/', component: Login, name: 'Login' },
-    { path: '/dashboard', component: Dashboard, name: 'Dashboard', children: [
-      {path: '/dashboard', component: Board, name: 'Board'},
+    { path: '', component: Dashboard, name: 'Dashboard', children: [
+      {path: 'dashboard', component: Board, name: 'Board'},
       {path: 'client', component: Client, name: 'Client'},
       {path: 'offer', component: Offer, name: 'Offer'},
       {path: 'new', component: New, name: 'New'},

@@ -71,7 +71,7 @@
 import { ref } from 'vue'
 import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { PencilIcon, DocumentDownloadIcon, EyeIcon } from '@heroicons/vue/solid'
-import { getOffer } from '../api/offers.js'
+
 
 import viewOffer from './viewoffer.vue'
 import viewProject from './viewproject.vue'

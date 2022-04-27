@@ -1,5 +1,5 @@
 const db = require ('../../../../db')
-const Partners = db.Partners
+const Documents = db.Documents
 
 module.exports = async function (req, res) {
     try {
@@ -9,8 +9,8 @@ module.exports = async function (req, res) {
           filter.age = { $exists: true }
         }
 
-        const getPartners  = await Partners.find(filter).sort({name: 1})
-        res.status(200).json ({ getPartners })
+        const getDocuments  = await Documents.find(filter)
+        res.status(200).json ({ getDocuments })
     } catch (error) {
         res.status(500).json({ message : error })
     }

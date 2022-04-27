@@ -445,8 +445,14 @@
                                 <table class="min-w-full divide-y divide-gray-300">
                                 <tfoot>
                                 <div class="py-10 pr-5 ml-auto w-full lg:w-2/4">
-                                    <div class="flex justify-between mb-5">
+                                <div class="flex justify-between mb-5">
                                         <div class="text-gray-800 text-right flex-1">Projekti maksumus</div>
+                                        <div class="text-right w-40">
+                                            <div class="text-gray-800 font-medium">0 €</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between mb-5">
+                                        <div class="text-gray-800 text-right flex-1">Makstud</div>
                                         <div class="text-right w-40">
                                             <div class="text-gray-800 font-medium">0 €</div>
                                         </div>

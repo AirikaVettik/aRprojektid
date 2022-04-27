@@ -310,7 +310,7 @@
 import { ref } from 'vue'
 import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { PencilIcon, DocumentDownloadIcon, EyeIcon, CalendarIcon } from '@heroicons/vue/solid'
-import { getOffer } from '../api/offers.js'
+
 
 
 export default {
@@ -331,12 +331,7 @@ export default {
     const loading = ref(false)
 
     const offer = ref([])
-    async function oneOffer() {
-        loading.value = true
-        offer.value = await getOffer()
-        loading.value = false
-    }
-    oneOffer()
+
 
     return {
         offer,

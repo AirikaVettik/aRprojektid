@@ -14,7 +14,7 @@
     <div class="border-b border-gray-200">
       <nav class="-mb-px-3 flex pt-10 uppercase" aria-label="Tabs">
         
-        <a v-on:click="toggleTabs(1)" @click="Drafts" v-bind:class="{'border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm truncate': openTab === 1, 
+        <a v-on:click="toggleTabs(1)" v-bind:class="{'border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm truncate': openTab === 1, 
         'border-transparent text-gray-500 hover:text-teal-700 hover:border-gray-300 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm truncate': openTab !== 1}"> Koostamisel </a>
 
         <a v-on:click="toggleTabs(2)" @click="Sendout" v-bind:class="{'border-teal-500 text-teal-600 w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm truncate': openTab === 2, 

@@ -47,6 +47,8 @@ const schema = new Schema ({
     }],
     budget: [{
         name: { type: String },
+        hours: { type: Number },
+        price: { type: Number },
         realhours: { type: Number },
         realprice: { type: Number },
         profit: { type: Number }

@@ -47,3 +47,19 @@ export async function getProjects() {
     })
     return result.data.getProjects
 }
+
+export async function getProjectsNew() {
+    const result = await axios({
+        url: '/api/document/get-projectsnew',
+        method: 'GET'
+    })
+    return result.data.getProjectsNew
+}
+
+export async function getProjectsMy() {
+    const result = await axios({
+        url: '/api/document/get-projectsmy',
+        method: 'GET'
+    })
+    return result.data.getProjectsMy
+}

@@ -8,6 +8,8 @@ const { getDocuments,
         getOffersDraft,
         getOffersSendout,
         getProjects,
+        getProjectsNew,
+        getProjectsMy,
         addDocument,
           } = require ('../Documents/services/index')
 
@@ -22,6 +24,10 @@ router.get('/get-offersdraft', getOffersDraft)
 router.get('/get-offerssendout', getOffersSendout)
 
 router.get('/get-projects', getProjects)
+
+router.get('/get-projectsnew', getProjectsNew)
+
+router.get('/get-projectsmy', getProjectsMy)
 
 router.post('/add-document', addDocument)
 

@@ -15,8 +15,6 @@
           <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-4xl sm:w-full sm:p-5">
             <div>
               <div class="mt-1 text-center sm:mt-5">
-                <DialogTitle as="h3" class="text-xl leading-6 font-bold text-gray-900"> </DialogTitle>
-                <p class="mt-1 text-xl text-gray-500">  </p>
 
                       <div class="flex flex-wrap">
                         <div class="w-full">
@@ -24,22 +22,17 @@
                             <div class="px-2 py-2 flex-auto">
                               <div class="tab-content tab-space">
                                 
-                                              <div>
+            <div>
               <div class="mt-1 l-2 text-left sm:mt-0">
-                <DialogTitle as="h3" class="text-xl leading-6 font-bold text-gray-900">  </DialogTitle>
-                <p class="mt-1 text-xl text-gray-500"> </p>
-
                 <div>
                     <div class="bg-white shadow overflow-hidden sm:rounded-lg">
                         <div class="border-t border-gray-200 px-2 py-2 sm:p-0">
                           <dl class="sm:divide-y sm:divide-gray-200">
                           <!-- Pakkumise nimi, staatus,  müügijuht, projekti kestvus, projekti algus, domeen, klient, kontaktisik, ettevõttest -->
                                   <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-                                  
-
                                                 <div class="px-4 py-5 sm:px-6">
-                                                  <h3 class="text-lg leading-6 font-medium text-gray-900">{{offer.title}}</h3>
-                                                  <p class="mt-1 max-w-2xl text-sm text-gray-500">{{offer.status}}</p>
+                                                <DialogTitle as="h3" class="text-xl text-center mb-5 leading-6 font-bold text-gray-900">{{offer.title}}  </DialogTitle>
+                                                  <p class="mt-1 text-center text-sm text-gray-800">{{offer.subStatus}}</p>
                                                 </div>
                                                 <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
                                                   <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">

@@ -5,6 +5,8 @@ module.exports = {
     getOffersDraft : require ('./getOffersDraft.controller'),
     getOffersSendout : require ('./getOffersSendout.controller'),
     getProjects : require ('./getProjects.controller'),
+    getProjectsNew : require ('./getProjectsNew.controller'),
+    getProjectsMy : require ('./getProjectsMy.controller'),
     addDocument : require ('./addDocument.controller'),
     
 }

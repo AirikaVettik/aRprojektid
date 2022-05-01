@@ -16,6 +16,14 @@ export async function getPartner(id) {
     return result.data.getPartner
 }
 
+export async function getPartnerContact(selectedPartner) {
+    const result = await axios({
+        url: '/api/partner/contact/' + selectedPartner,
+        method: 'GET'
+    })
+    return result.data.getPartnerContact
+}
+
 export async function addPartner(form) {
     const result = await axios({
         url: '/api/partner/add-partner/',

@@ -118,7 +118,7 @@
                           <td class="whitespace-nowrap py-4 pr-2 text-sm ">
                             <div class="flex items-center">
                               <div class="ml-4">
-                                <div class="font-medium text-gray-900">{{ project.partner }}</div>
+                                <div class="font-medium text-gray-900">{{ project.partner}}</div>
                                 <div class="text-gray-500">{{ project.contact }}</div>
                               </div>
                             </div>

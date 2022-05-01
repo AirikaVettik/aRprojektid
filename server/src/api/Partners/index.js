@@ -7,11 +7,14 @@ const { getPartners,
         addPartner,
         deletePartner,
         updatePartner,
+        getPartnerContact,
           } = require ('../Partners/services/index')
 
 router.get('/get-partners', getPartners )
 
 router.get('/get-partner/:id', getPartner )
+
+router.get('/contact/:name', getPartnerContact )
 
 router.post('/add-partner', addPartner )
 

@@ -63,3 +63,12 @@ export async function getProjectsMy() {
     })
     return result.data.getProjectsMy
 }
+
+export async function addDocument(document) {
+    const result = await axios({
+        url: '/api/document/add-document/',
+        method: 'POST',
+        headers: {},
+        data: document
+    },)
+} 

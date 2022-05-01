@@ -10,7 +10,7 @@ const schema = new Schema ({
     },
     subStatus: {
         type: String, 
-        enum: ['Koostamisel', 'Välja saadetud', 'Tagasi lükatud', 'Uus projekt', 'Töösse võetud', 'Kujundustööd', 'Arendustööd', 'Testimisel', 'Ootel', 'Pausil', 'Parandustööd', 'Hooldustööd', 'LIVE'],
+        enum: ['Koostamisel', 'Välja saadetud', 'Tagasi lükatud', 'Uus projekt', 'Töösse võetud', 'Kujundustööd', 'Arendustööd', 'Testimisel', 'Ootel', 'Pausil', 'Parandustööd', 'Hooldustööd', 'Lõpetatud'],
         default: 'DRAFT'
     },
     title: { type: String, require: true },

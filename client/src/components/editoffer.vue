@@ -165,8 +165,11 @@
                             <div>
                                 <!-- Klient ehk ettevõttenimi -->
                                 <label for="partner" class="block text-sm font-medium text-gray-700">Klient</label>
-                                <select id="partner" v-model="editoffer.partner" @change="partnerContacts(editoffer.partner)"  name="partner" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md">
-                                    
+                                <p class="block text-sm font-medium text-gray-900"> {{editoffer.partner}}</p>
+                                <div class="border-t border-gray-200 mt-5" />
+                                <label for="partner" class="block text-xs font-medium text-gray-700">Kliendi muutmiseks tee uus valik</label>
+                                <select id="partner" v-model="editoffer.partner" @change="partnerContacts(editoffer.partner)"   name="partner" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md">
+                                    <option selected :value="editoffer.partner">Valitud: {{editoffer.partner}}</option>
                                     <option v-for="(partner, id) in partners" :key="id" :value="partner.name">
                                     {{ partner.name }} </option>
               
@@ -176,9 +179,13 @@
                             <div>
                                 <!-- Ettevõtte kontaktisik -->
                                 <label for="contact" class="block text-sm font-medium text-gray-700">Kontaktisik</label>
-                                <select id="contact" v-model="editoffer.contact" name="contact" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md"> 
+                                <p class="block text-sm font-medium text-gray-900"> {{editoffer.contact}}</p>
+                                <div class="border-t border-gray-200 mt-5" />
+                                <label for="partner" class="block text-xs font-medium text-gray-700">Kontaktisiku muutmiseks vali enne klient</label>
+                                <select id="contact" v-model="editoffer.contact" name="contact" defaultValue = "Selecciona un asunto" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md"> 
+                                    <option selected :value="editoffer.contact">Valitud: {{editoffer.contact}}</option>
                                     <option v-for="(contact, id) in partner.contacts" :key="id" :value="contact.name">
-                                    {{ contact.name }}</option>
+                                    {{editoffer.partner}} kontakt: {{ contact.name }}</option>
                                     
                                 </select>
                             </div> 

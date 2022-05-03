@@ -81,3 +81,10 @@ export async function updateDocument(id, newOffer) {
         data: newOffer
     })
 }
+
+export async function duplicateDocument(id) {
+    const result = await axios({
+        url: '/api/document/duplicate/' +id,
+        method: 'POST',
+    },)
+} 

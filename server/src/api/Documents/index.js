@@ -12,6 +12,7 @@ const { getDocuments,
         getProjectsMy,
         addDocument,
         updateDocument,
+        duplicateDocument,
           } = require ('../Documents/services/index')
 
 router.get('/get-documents', getDocuments)
@@ -33,5 +34,7 @@ router.get('/get-projectsmy', getProjectsMy)
 router.post('/add-document', addDocument)
 
 router.patch('/update-document/:id', updateDocument)
+
+router.post('/duplicate/:id', duplicateDocument)
 
 module.exports = router

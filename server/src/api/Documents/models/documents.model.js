@@ -6,12 +6,12 @@ const schema = new Schema ({
         type: String, 
         require: true, 
         enum: ['Hinnapakkumine', 'Projekt', 'Lõpetatud'],
-        default: 'OFFER'
+        default: 'Hinnapakkumine'
     },
     subStatus: {
         type: String, 
         enum: ['Koostamisel', 'Välja saadetud', 'Tagasi lükatud', 'Uus projekt', 'Töösse võetud', 'Kujundustööd', 'Arendustööd', 'Testimisel', 'Ootel', 'Pausil', 'Parandustööd', 'Hooldustööd', 'Lõpetatud'],
-        default: 'DRAFT'
+        default: 'Koostamisel'
     },
     title: { type: String, require: true },
     sellmanager: { type: String, require: true },

@@ -89,7 +89,8 @@
                               </td>
 
                               <td class="relative whitespace-nowrap text-center px-2">
-                              <button><DocumentDuplicateIcon class="flex-shrink-0 h-7 w-7 text-gray-400" aria-hidden="true" /></button>
+                              <button @click="duplicateOffer(offer.id)">
+                              <DocumentDuplicateIcon class="flex-shrink-0 h-7 w-7 text-gray-400" aria-hidden="true" /></button>
                               </td>
                               
                             </tr>
@@ -161,7 +162,8 @@
                               </td>
 
                               <td class="relative whitespace-nowrap text-center px-2">
-                              <button><DocumentDuplicateIcon class="flex-shrink-0 h-7 w-7 text-gray-400" aria-hidden="true" /></button>
+                              <button @click="duplicateOffer(offer.id)">
+                              <DocumentDuplicateIcon class="flex-shrink-0 h-7 w-7 text-gray-400" aria-hidden="true" /></button>
                               </td>
                               
                             </tr>
@@ -233,7 +235,8 @@
                               </td>
 
                               <td class="relative whitespace-nowrap text-center px-2">
-                              <button><DocumentDuplicateIcon class="flex-shrink-0 h-7 w-7 text-gray-400" aria-hidden="true" /></button>
+                              <button @click="duplicateOffer(offer.id)">
+                              <DocumentDuplicateIcon class="flex-shrink-0 h-7 w-7 text-gray-400" aria-hidden="true" /></button>
                               </td>
                               
                             </tr>
@@ -257,7 +260,7 @@
 import router from '../../../router'
 import { ref } from 'vue'
 import { PencilIcon, DocumentDownloadIcon, EyeIcon, DocumentDuplicateIcon } from '@heroicons/vue/solid'
-import { getDocuments, getDocument, getOffers, getOffersDraft, getOffersSendout, updateDocument } from '../../../api/documents.js'
+import { getDocuments, getDocument, getOffers, getOffersDraft, getOffersSendout, updateDocument, duplicateDocument } from '../../../api/documents.js'
 import Editoffer from "../../../components/editoffer.vue"
 import Viewo from '../../../components/viewo.vue'
 
@@ -283,6 +286,8 @@ export default {
     const offerssendout = ref([])
 
     const editoffer = ref([])
+
+    const duplicateoffer = ref([])
 
     const showOffer = async(id)  => {
       displayoffer.value = true
@@ -332,6 +337,13 @@ export default {
       offerssendout.value = await getOffersSendout();
     }
 
+    const duplicateOffer = async(id) => {
+      duplicateoffer.value = await duplicateDocument(id)
+      offersdraft.value = await getOffersDraft();
+      offers.value = await getOffers();
+      offerssendout.value = await getOffersSendout();
+    }
+
 
 
     return {
@@ -350,7 +362,9 @@ export default {
       edit,
       editoffer,
       editOffer,
-      dataOffer
+      dataOffer,
+      duplicateoffer,
+      duplicateOffer,
     }
   },
 }

@@ -26,10 +26,10 @@
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-200 bg-white">
-                <tr v-for="(project, projectIndex) in projects" :key="projectIndex">
+                <tr v-for="(project, index) in projectsnew" :key="project.index">
                   
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                    <div class="text-gray-900">{{ project.project }}</div>
+                    <div class="text-gray-900">{{ project.title }}</div>
                   </td>
 
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ project.status }}</td>
@@ -44,7 +44,7 @@
                   </td>
 
                   <td class="relative whitespace-nowrap text-center">
-                    <button @click="showProject">
+                    <button @click="showProject(project.id)">
                     <EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
                   </td>
 
@@ -59,7 +59,7 @@
         </div>
       </div>
     </div>
-    <Viewp v-if="displayoffer"  @close="closeOffer"/>
+    <Viewp v-if="displayproject"  @close="closeProject" :project="project" />
   </div>
   <div class="px-4 sm:px-6 lg:px-8">
     <div class="sm:flex sm:items-center pt-4">
@@ -109,7 +109,7 @@
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-200 bg-white">
-                <tr v-for="(offer, offerIndex) in offers" :key="offerIndex">
+                <tr v-for="(offer, index) in offerssendout" :key="offer.index">
 
                   <td class="whitespace-nowrap py-4 pl-2 pr-2 text-sm sm:pl-2">
                     <div class="flex items-center">
@@ -123,15 +123,15 @@
                   </td>
 
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                    <div class="text-gray-900">{{ offer.project }}</div>
+                    <div class="text-gray-900">{{ offer.title}}</div>
                   </td>
 
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                    {{ offer.status }}
+                    {{ offer.subStatus }}
                   </td>
 
                   <td class="relative whitespace-nowrap text-center px-2">
-                    <button @click="showOffer">
+                    <button @click="showOffer(offer.id)">
                       <EyeIcon
                         class="flex-shrink-0 h-6 w-6 text-gray-400"
                         aria-hidden="true"
@@ -156,7 +156,7 @@
         </div>
       </div>
     </div>
-    <Viewo v-if="displayoffer" @close="closeOffer" />
+    <Viewo v-if="displayoffer" @close="closeOffer" :offer="offer"/>
   </div>
 
 
@@ -164,6 +164,7 @@
 
 <script>
 import router from "../../../router";
+import { getProjectsNew, getOffersSendout, getDocument } from '../../../api/documents.js'
 import { ref } from "vue";
 import {
   PencilIcon,
@@ -186,30 +187,60 @@ export default {
     Viewp,
   },
 
-  data() {
-    return {
-      displayoffer: false,
-    };
-  },
-
-  methods: {
-    showOffer() {
-      console.log();
-      this.displayoffer = true;
-    },
-    closeOffer() {
-      this.displayoffer = false;
-    }
-  },
   setup() {
     const loading = ref(false);
+    const displayproject = ref(false)
+    const displayoffer = ref(false)
+    const projectsnew = ref([])
+    const offerssendout = ref([])
+    const project = ref([]) 
+    const offer = ref([])
+
+    const showProject = async(id)  => {
+      displayproject.value = true
+      project.value = await getDocument(id)
+    }
+
+    const closeProject = async()=> {
+      displayproject.value = false
+    }
+
+    const showOffer = async(id)  => {
+      displayoffer.value = true
+      offer.value = await getDocument(id)
+    }
+    const closeOffer = async()=> {
+      displayoffer.value = false
+    }
+
+    async function New() {
+      loading.value = true;
+      projectsnew.value = await getProjectsNew();
+      loading.value = false;
+    }
+    New()
+
+    async function Sendout() {
+      loading.value = true;
+      offerssendout.value = await getOffersSendout();
+      loading.value = false;
+    }
+    Sendout()
 
 
 
     return {
-
-
       loading,
+      project,
+      offer,
+      displayproject,
+      displayoffer,
+      projectsnew,
+      offerssendout,
+      showProject,
+      closeProject,
+      showOffer,
+      closeOffer,
     };
   },
 };

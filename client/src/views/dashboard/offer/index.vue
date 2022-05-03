@@ -80,7 +80,8 @@
                               </td>
 
                               <td class="relative whitespace-nowrap text-center">
-                                <button><PencilIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
+                                <button @click="dataOffer(offer.id)">
+                                <PencilIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
                               </td>
 
                               <td class="relative whitespace-nowrap text-center">
@@ -151,7 +152,8 @@
                               </td>
 
                               <td class="relative whitespace-nowrap text-center">
-                                <button><PencilIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
+                                <button @click="dataOffer(offer.id)">
+                                <PencilIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
                               </td>
 
                               <td class="relative whitespace-nowrap text-center">
@@ -222,7 +224,8 @@
                               </td>
 
                               <td class="relative whitespace-nowrap text-center">
-                                <button><PencilIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
+                                <button @click="dataOffer(offer.id)">
+                                <PencilIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
                               </td>
 
                               <td class="relative whitespace-nowrap text-center">
@@ -246,6 +249,7 @@
   
 </div>
 <Viewo v-if="displayoffer"  @close="closeOffer" :offer="offer"/>
+<Editoffer v-if="edit" @close="closeOffer" @editOffer="editOffer" :editoffer="editoffer" />
 </template>
 
 
@@ -253,7 +257,8 @@
 import router from '../../../router'
 import { ref } from 'vue'
 import { PencilIcon, DocumentDownloadIcon, EyeIcon, DocumentDuplicateIcon } from '@heroicons/vue/solid'
-import { getDocument, getOffers, getOffersDraft, getOffersSendout } from '../../../api/documents.js'
+import { getDocuments, getDocument, getOffers, getOffersDraft, getOffersSendout, updateDocument } from '../../../api/documents.js'
+import Editoffer from "../../../components/editoffer.vue"
 import Viewo from '../../../components/viewo.vue'
 
 export default {
@@ -263,18 +268,21 @@ export default {
     EyeIcon, 
     DocumentDuplicateIcon,
     Viewo,
-   
+    Editoffer
   },
     
   setup() {
     const displayoffer = ref(false)
     const loading = ref(false)
     const openTab = ref(1)
+    const edit = ref(false)
 
     const offers = ref ([])
     const offer = ref([])
     const offersdraft = ref([])
     const offerssendout = ref([])
+
+    const editoffer = ref([])
 
     const showOffer = async(id)  => {
       displayoffer.value = true
@@ -282,6 +290,7 @@ export default {
     }
     const closeOffer = async()=> {
       displayoffer.value = false
+      edit.value = false
     }
 
     const toggleTabs = async(tabNumber) =>{
@@ -306,6 +315,23 @@ export default {
       loading.value = false;
     }
 
+    const dataOffer = async (id) => {
+      edit.value = true
+      editoffer.value = await getDocument(id)
+      console.log(editoffer.value)
+    }
+
+    async function editOffer(newOffer) {
+      edit.value = false 
+      const id  = newOffer.id
+      console.log(id)
+      console.log(newOffer)
+      newOffer.value = await updateDocument(id, newOffer)
+      offersdraft.value = await getOffersDraft();
+      offers.value = await getOffers();
+      offerssendout.value = await getOffersSendout();
+    }
+
 
 
     return {
@@ -320,7 +346,11 @@ export default {
       closeOffer,
       Sendout,
       All,
-      loading
+      loading,
+      edit,
+      editoffer,
+      editOffer,
+      dataOffer
     }
   },
 }

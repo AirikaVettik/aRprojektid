@@ -18,11 +18,12 @@
           <div class="md:grid md:grid-cols-2">
             <div class="mt-5 md:mt-4 md:col-span-6">
 
-              <form>
+              
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                   <div class="px-4 py-5 bg-white space-y-6 sm:p-8">
                     <div class="grid grid-cols-6 gap-4">
-                      <div class="col-span-2 sm:col-span-3">
+                      
+                     <div class="col-span-2 sm:col-span-3">
                         <label
                           for="client"
                           class="block text-sm font-medium text-gray-700"
@@ -121,7 +122,7 @@
                           >Kontaktisik(ud)</label
                         >
                       </div>
-                      <div v-for="contact in newData.contacts" :key="contact._id" class="grid grid-cols-7 gap-2">
+                      <div v-for="(contact, index) in newData.contacts" :key="index" class="grid grid-cols-7 gap-2">
                       
                       <div class="col-span-7 sm:col-span-2 lg:col-span-2">
                         <label
@@ -183,42 +184,41 @@
 
                       <div class="col-span-7 sm:col-span-1 lg:col-span-1 justify-self-center self-end">
         
-                        <button @click="delContact">
+                        <button @click="removeContact(index)">
                           <XIcon
                             class="flex-shrink-0 h-6 w-6 text-gray-400"
                             aria-hidden="true"
                           />
                         </button>
                       </div>
-                      
-                  </div>
-
-                   <div class="">
+                     
+                  </div><div class="text-right">
                   <button
-                      
+                      @click="addContact(index)"
                       class="w-10 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
                     >
                       +
                     </button>
 
-                  </div>
               </div>
+      </div>
+</div>
+</div>
+</div>
+</div>
 
                   <div class="px-4 py-3 bg-gray-50 text-center sm:px-6">
-                  <button
+                    <button
                       
                       @click="editPartner(editpartner.id)"
                       class="w-2/4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
-                    >
+                      > 
                       Uuenda andmed
                     </button>
 
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+                  </div> 
+            
+        
             <div class="mt-5 sm:mt-6 text-center">
               <button type="button" class="w-1/4 inline-flex justify-center rounded-md border 
               border-transparent shadow-sm px-4 py-2 bg-teal-600 text-base 
@@ -237,7 +237,7 @@
 import { ref, toRefs, reactive } from 'vue'
 import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { PencilIcon, DocumentDownloadIcon, EyeIcon, XIcon } from '@heroicons/vue/solid'
-import { updatePartner  } from "../api/partners.js";
+
 
 
 export default {
@@ -271,6 +271,17 @@ export default {
   function editPartner(id) {
     emit('editPartner', newData.value)
   }
+  
+  const addContact = async(index) => {
+      newData.value.contacts.push({})
+    }
+  const removeContact = async(index) => {
+      newData.value.contacts.splice(index, 1)
+      console.log(newData.value.contacts)
+      console.log(index)
+  }
+  
+
 
     return {
       open,
@@ -278,8 +289,9 @@ export default {
       editPartner,
       editpartner,
       edit,
-      regcode,
-      newData
+      newData,
+      addContact,
+      removeContact
     }
   },
 }

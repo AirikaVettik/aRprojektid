@@ -72,3 +72,12 @@ export async function addDocument(document) {
         data: document
     },)
 } 
+
+export async function updateDocument(id, newOffer) {
+    const result = await axios({
+        url: '/api/document/update-document/' + id,
+        method: 'PATCH',
+        headers: {},
+        data: newOffer
+    })
+}

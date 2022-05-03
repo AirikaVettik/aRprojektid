@@ -1,12 +1,12 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
   <div class="px-4 sm:px-6 lg:px-8">
-    <!-- Kliendi andmed -->
+<!-- Kliendi andmed -->
     <div
       class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
     >
       <div class="px-4 py-5 pt-10 flex-auto">
-      <!-- Uus klient --> 
+<!-- Uus klient --> 
         <div class="mt-10 sm:mt-0">
           <div class="md:grid md:grid-cols-2">
             <div class="md:col-span-1">
@@ -197,7 +197,7 @@
             </div>
           </div>
         </div>
-        <!-- Klientide list --> 
+<!-- Klientide list --> 
         <div class="mt-8 flex flex-col">
           <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div
@@ -314,10 +314,10 @@
 </template>
 
 <script>
-import { ref , toRefs, reactive,} from "vue";
-import { useField, useForm,  } from 'vee-validate';
-import { PencilIcon, EyeIcon, XIcon } from "@heroicons/vue/solid";
-import Viewclient from "../../../components/viewclient.vue";
+import { ref , toRefs, reactive,} from "vue"
+import { useField, useForm,  } from 'vee-validate'
+import { PencilIcon, EyeIcon, XIcon } from "@heroicons/vue/solid"
+import Viewclient from "../../../components/viewclient.vue"
 import Editclient from "../../../components/editclient.vue"
 import { getPartners, getPartner, addPartner, deletePartner, updatePartner } from "../../../api/partners.js";
 
@@ -409,7 +409,7 @@ export default {
       editpartner,
       dataPartner,
       editPartner,
-      close,  
+      close, 
     };
   },
 };

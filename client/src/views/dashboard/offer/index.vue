@@ -43,7 +43,6 @@
                               <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Staatus</th>
                               <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Vaata</span></th>
                               <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Edit</span></th>
-                              <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Download</span></th>
                               <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Copy</span></th>
                             </tr>
                           </thead>
@@ -84,10 +83,6 @@
                                 <PencilIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
                               </td>
 
-                              <td class="relative whitespace-nowrap text-center">
-                              <button><DocumentDownloadIcon class="flex-shrink-0 h-7 w-7 text-gray-400" aria-hidden="true" /></button>
-                              </td>
-
                               <td class="relative whitespace-nowrap text-center px-2">
                               <button @click="duplicateOffer(offer.id)">
                               <DocumentDuplicateIcon class="flex-shrink-0 h-7 w-7 text-gray-400" aria-hidden="true" /></button>
@@ -116,7 +111,6 @@
                               <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Staatus</th>
                               <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Vaata</span></th>
                               <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Edit</span></th>
-                              <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Download</span></th>
                               <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Copy</span></th>
                             </tr>
                           </thead>
@@ -157,10 +151,6 @@
                                 <PencilIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
                               </td>
 
-                              <td class="relative whitespace-nowrap text-center">
-                              <button><DocumentDownloadIcon class="flex-shrink-0 h-7 w-7 text-gray-400" aria-hidden="true" /></button>
-                              </td>
-
                               <td class="relative whitespace-nowrap text-center px-2">
                               <button @click="duplicateOffer(offer.id)">
                               <DocumentDuplicateIcon class="flex-shrink-0 h-7 w-7 text-gray-400" aria-hidden="true" /></button>
@@ -189,7 +179,6 @@
                               <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Staatus</th>
                               <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Vaata</span></th>
                               <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Edit</span></th>
-                              <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Download</span></th>
                               <th scope="col" class="relative py-3 sm:pr-6"><span class="sr-only">Copy</span></th>
                             </tr>
                           </thead>
@@ -230,10 +219,6 @@
                                 <PencilIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
                               </td>
 
-                              <td class="relative whitespace-nowrap text-center">
-                              <button><DocumentDownloadIcon class="flex-shrink-0 h-7 w-7 text-gray-400" aria-hidden="true" /></button>
-                              </td>
-
                               <td class="relative whitespace-nowrap text-center px-2">
                               <button @click="duplicateOffer(offer.id)">
                               <DocumentDuplicateIcon class="flex-shrink-0 h-7 w-7 text-gray-400" aria-hidden="true" /></button>
@@ -259,7 +244,7 @@
 <script>
 import router from '../../../router'
 import { ref } from 'vue'
-import { PencilIcon, DocumentDownloadIcon, EyeIcon, DocumentDuplicateIcon } from '@heroicons/vue/solid'
+import { PencilIcon, EyeIcon, DocumentDuplicateIcon  } from '@heroicons/vue/solid'
 import { getDocuments, getDocument, getOffers, getOffersDraft, getOffersSendout, updateDocument, duplicateDocument } from '../../../api/documents.js'
 import Editoffer from "../../../components/editoffer.vue"
 import Viewo from '../../../components/viewo.vue'
@@ -267,11 +252,10 @@ import Viewo from '../../../components/viewo.vue'
 export default {
   components: {
     PencilIcon,
-    DocumentDownloadIcon,
     EyeIcon, 
-    DocumentDuplicateIcon,
     Viewo,
-    Editoffer
+    Editoffer,
+    DocumentDuplicateIcon
   },
     
   setup() {

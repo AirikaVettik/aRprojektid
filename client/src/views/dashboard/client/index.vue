@@ -273,7 +273,7 @@
 
                       <td class="relative whitespace-nowrap text-center pl-4 pr-2">
                         <div>
-                          <button @click="showPartner(partner.id)" >
+                          <button @click="showPartner(partner.id), Offers(partner.name), Projects(partner.name)">
                             <EyeIcon
                               class="flex-shrink-0 h-6 w-6 text-gray-400"
                               aria-hidden="true"
@@ -308,7 +308,7 @@
         </div>
       </div>
     </div>
-    <Viewclient v-if="display" @close="close" :partner="partner"/>
+    <Viewclient v-if="display" @close="close" :partner="partner" :offers="offers" :projects="projects" />
     <Editclient v-if="edit" @close="close" @editPartner="editPartner" :editpartner="editpartner" />
   </div>
 </template>
@@ -320,6 +320,8 @@ import { PencilIcon, EyeIcon, XIcon } from "@heroicons/vue/solid"
 import Viewclient from "../../../components/viewclient.vue"
 import Editclient from "../../../components/editclient.vue"
 import { getPartners, getPartner, addPartner, deletePartner, updatePartner } from "../../../api/partners.js";
+import { getOffersByPartner, getProjectsByPartner } from '../../../api/documents.js'
+
 
 export default {
   components: {
@@ -338,6 +340,9 @@ export default {
     const partners = ref([]);
     const partner = ref([]);
     const editpartner = ref([])
+
+    const offers = ref([])
+    const projects = ref([])
 
     async function allPartners() {
       loading.value = true;
@@ -396,6 +401,20 @@ export default {
       
     }
 
+    async function Offers(partner) {
+      offers.value = await getOffersByPartner(partner)
+      console.log(partner)
+      console.log(offers.value)
+    }
+    Offers()
+
+     async function Projects(partner) {
+      projects.value = await getProjectsByPartner(partner)
+      console.log(partner)
+      console.log(offers.value)
+    }
+    Projects()
+
     return {
       partners,
       partner,
@@ -410,6 +429,10 @@ export default {
       dataPartner,
       editPartner,
       close, 
+      offers,
+      Offers,
+      projects,
+      Projects
     };
   },
 };

@@ -269,8 +269,8 @@
                             <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
                                 <input v-model="offer.price" type="number" name="price" id="price" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="0"/>
                             </td>
-                            <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell">
-                                <input v-model="offer.total" type="number" name="price" id="price" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="0"/>
+                            <td class=" py-2 px-2 text-center text-sm text-gray-500 sm:table-cell" >
+                                <input :value="offer.total = offer.hours * offer.price"  type="number" name="price" id="price" class="w-full text-right focus:ring-teal-500 focus:border-teal-500 sm:text-sm border-gray-200" placeholder="0"/>
                             </td>
 
                             </tr>
@@ -908,6 +908,7 @@ export default {
     const toggleTabs = async(tabNumber) =>{
       openTab.value = tabNumber
     }
+    
 
     const document = reactive({
       sellmanager: '',
@@ -1043,7 +1044,7 @@ export default {
       addMoney,
       addPlugin,
       addPayment,
-      saveDocument
+      saveDocument,
     }
   },
 }

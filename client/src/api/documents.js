@@ -88,3 +88,19 @@ export async function duplicateDocument(id) {
         method: 'POST',
     },)
 } 
+
+export async function getOffersByPartner(partner) {
+    const result = await axios({
+        url: '/api/document/offers/partner/' + partner,
+        method: 'GET'
+    })
+    return result.data.getOffersByPartner
+}
+
+export async function getProjectsByPartner(partner) {
+    const result = await axios({
+        url: '/api/document/projects/partner/' + partner,
+        method: 'GET'
+    })
+    return result.data.getProjectsByPartner
+}

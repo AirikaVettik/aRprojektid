@@ -9,5 +9,7 @@ module.exports = {
     getProjectsMy : require ('./getProjectsMy.controller'),
     addDocument : require ('./addDocument.controller'),
     updateDocument : require ('./updateDocument.controller'),
-    duplicateDocument : require('./duplicateDocument.controller')
+    duplicateDocument : require ('./duplicateDocument.controller'),
+    getOffersByPartner : require ('./getOffersByPartner.controller'),
+    getProjectsByPartner : require ('./getProjectsByPartner.controller')
 }

@@ -53,13 +53,14 @@
                               <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">
                                 <dt class="text-sm font-medium text-gray-500">Hinnapakkumised</dt>
                                   <dd class="text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-                                        <ul v-for="(offer, index) in partner.offers" :key="offer.id" role="list" class="text-left">
+                                        <ul v-for="(offer, index) in offers" :key="index" role="list" class="text-left">
                                           <li class="pr-2 mb-2  flex items-left justify-between text-sm">
                                             <div class="w-0 flex-1 flex text-left">
                                               <span class="flex-1 w-0 truncate"> {{ offer.title }} </span>
                                             </div>
                                             <div class="ml-4 flex-shrink-0">
-                                              <button><EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
+                                              <button @click="showOffer(offer.id)">
+                                              <EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
                                             </div>
                                           </li>
                                         </ul>
@@ -70,13 +71,14 @@
                               <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-2">
                                 <dt class="text-sm font-medium text-gray-500">Projektid</dt>
                                   <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-                                        <ul v-for="(project, index) in partner.projects" :key="project.id" role="list" class="text-left">
+                                        <ul v-for="(project, index) in projects" :key="index" role="list" class="text-left">
                                           <li  class="pr-2 mb-2  flex items-left justify-between text-sm">
                                             <div class="w-0 flex-1 flex text-left">
                                               <span class="flex-1 w-0 truncate"> {{ project.title}} </span>
                                             </div>
                                             <div class="ml-4 flex-shrink-0">
-                                              <button><EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
+                                              <button @click="showProject(project.id)">
+                                              <EyeIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" /></button>
                                             </div>
                                           </li>
                                         </ul>
@@ -95,6 +97,8 @@
           </div>
         </TransitionChild>
       </div>
+      <Viewo v-if="displayoffer"  @close="closeOffer" :offer="offer"/>
+      <Viewp v-if="displayproject"  @close="closeProject" :project="project"/>
     </Dialog>
   </TransitionRoot>
 </template>
@@ -103,7 +107,10 @@
 import { ref, toRefs } from 'vue'
 import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { PencilIcon, DocumentDownloadIcon, EyeIcon } from '@heroicons/vue/solid'
+import { getDocument } from '../api/documents.js'
 import { getPartner } from '../api/partners.js'
+import Viewo from '../components/viewo.vue'
+import Viewp from '../components/viewp.vue'
 
 export default {
   name: 'viewclient',
@@ -115,29 +122,65 @@ export default {
     TransitionRoot,
     PencilIcon,
     DocumentDownloadIcon,
-    EyeIcon
+    EyeIcon,
+    Viewo,
+    Viewp
   },
-  props: ['partner'],
+  props: ['partner', 'offers', 'projects'],
  
-
-
-
   setup(props, { emit }) {
   
   const {partner} = toRefs(props)
+  const {offers} = toRefs(props)
+  const {projects} = toRefs(props)
 
   console.log(partner)
+  console.log(offers)
+  console.log(projects)
 
   const open = ref(true)
+  const displayoffer = ref(false)
+  const displayproject = ref(false)
+
+  const closeOffer = async()=> {
+      displayoffer.value = false
+    }
+  
+  const closeProject = async()=> {
+      displayproject.value = false
+    }
+
+  const offer = ref([])
+  const project = ref([])
 
   function close() {
     emit('close')
   }
 
+  const showOffer = async(id)  => {
+      displayoffer.value = true
+      offer.value = await getDocument(id)
+  }
+
+  const showProject = async(id)  => {
+      displayproject.value = true
+      project.value = await getDocument(id)
+  }
+
     return {
       open,
       partner,
-      close
+      close,
+      offers,
+      projects,
+      offer,
+      showOffer,
+      displayoffer,
+      closeOffer,
+      project,
+      displayproject,
+      showProject,
+      closeProject
     }
   },
 }

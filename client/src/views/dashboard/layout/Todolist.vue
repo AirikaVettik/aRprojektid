@@ -44,7 +44,7 @@
       <div class="flex py-4">
 
         <div class="w-full">
-          <textarea @keyup.enter="addTask(task)" v-model="task.title" id="todo" name="todo" rows="2" class="shadow-sm focus:ring-teal-500 focus:border-teal-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="ijisdhuhfidsufhkdhfiuhkjbkhb " />
+          <textarea @keyup.enter="addTask(task)" v-model="task.title" id="todo" name="todo" rows="2" class="shadow-sm focus:ring-teal-500 focus:border-teal-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Ülesanne..." />
         </div>
         
       </div>

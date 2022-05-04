@@ -1,12 +1,10 @@
 const db = require ('../../../../db')
-const Users = db.Users
+const Todos = db.Todos
 
 module.exports = async function (req, res) {
     try {
-        await Users.updateOne({_id: req.params.id}, {
-            $set: req.body
-        })
-        res.status(200).json ({ message: req.body })
+        const getTasksTrue  = await Todos.find({checkbox: true})
+        res.status(200).json ({ getTasksTrue })
     } catch (error) {
         res.status(500).json({ message : error })
     }

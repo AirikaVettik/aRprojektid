@@ -315,7 +315,6 @@
 
 <script>
 import { ref , toRefs, reactive,} from "vue"
-import { useField, useForm,  } from 'vee-validate'
 import { PencilIcon, EyeIcon, XIcon } from "@heroicons/vue/solid"
 import Viewclient from "../../../components/viewclient.vue"
 import Editclient from "../../../components/editclient.vue"
@@ -401,19 +400,17 @@ export default {
       
     }
 
-    async function Offers(partner) {
+    const Offers = async(partner) => {
       offers.value = await getOffersByPartner(partner)
       console.log(partner)
       console.log(offers.value)
     }
-    Offers()
 
-     async function Projects(partner) {
+     const Projects = async(partner) => {
       projects.value = await getProjectsByPartner(partner)
       console.log(partner)
       console.log(offers.value)
     }
-    Projects()
 
     return {
       partners,

@@ -235,7 +235,7 @@
 
                                                                                                                 <div class="mt-2 flex items-center text-xs text-gray-500 sm:mt-0">
                                                                                                                   <CalendarIcon class="flex-shrink-0 mr-1.5 h-4 w-4 text-gray-500"/>
-                                                                                                                    <p>Sissekanne <time>{{ log.date }}</time></p>
+                                                                                                                    <p>Sissekanne {{ formatDate(log.date) }}</p>
                                                                                                                   </div>
                                                                                                                 </div>
                                                                                                                   <div class="sm:flex">
@@ -275,8 +275,8 @@
                                                                                   </td>
                                                                                   
                                                                                   <td class=" py-2 px-2 text-left text-sm text-gray-500 sm:table-cell"> {{ timetable.name }} </td>
-                                                                                  <td class="py-3 px-3 text-right text-sm text-gray-500 sm:table-cell"> {{ timetable.start}} </td>
-                                                                                  <td class=" py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{timetable.finish}} </td>
+                                                                                  <td class="py-3 px-3 text-right text-sm text-gray-500 sm:table-cell" > {{ formatDate(timetable.start) }} </td>
+                                                                                  <td class=" py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{ formatDate(timetable.finish) }} </td>
                                                                                   </tr>
 
                                                                               </tbody>
@@ -393,7 +393,7 @@
 
                                                                                   <tr v-for="plugin in project.plugins" class="divide-x divide-gray-200">
 
-                                                                                  <td class="py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{ plugin.start }} </td>
+                                                                                  <td class="py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{ formatDate(plugin.start) }} </td>
                                                                                   <td class="py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{ plugin.name}} </td>
                                                                                   <td class="py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{ plugin.sum}} </td>
 
@@ -449,7 +449,7 @@
                                                                                   <input id="done" name="done" type="checkbox" v-model="payment.checkbox" class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded" />
                                                                                   </td>
 
-                                                                                  <td class="py-2 px-2 text-center text-sm text-gray-500 sm:table-cell"> {{ payment.date }} </td>
+                                                                                  <td class="py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{ formatDate(payment.date) }} </td>
 
                                                                                   <td class=" py-2 px-2 text-right  text-sm text-gray-500 sm:table-cell"> {{ payment.name }} </td>
 
@@ -544,9 +544,9 @@
 
                                                                                       <td class=" py-2 px-2 text-left text-sm text-gray-500 sm:table-cell"> {{ plugin.name }} </td>
 
-                                                                                      <td class="py-3 px-3 text-right text-sm text-gray-500 sm:table-cell"> {{ plugin.start}} </td>
+                                                                                      <td class="py-3 px-3 text-right text-sm text-gray-500 sm:table-cell"> {{ formatDate(plugin.start) }} </td>
 
-                                                                                      <td class=" py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{plugin.end}} </td>
+                                                                                      <td class=" py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{ formatDate(plugin.end) }} </td>
 
                                                                                       </tr>
                                                                                   </tbody>
@@ -576,9 +576,9 @@
 
                                                                                       <td class=" py-2 px-2 text-left text-sm text-gray-500 sm:table-cell"> {{ guaranty.name }} </td>
 
-                                                                                      <td class="py-3 px-3 text-right text-sm text-gray-500 sm:table-cell"> {{ guaranty.start }} </td>
+                                                                                      <td class="py-3 px-3 text-right text-sm text-gray-500 sm:table-cell"> {{ formatDate(guaranty.start) }} </td>
 
-                                                                                      <td class=" py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{ guaranty.end }} </td>
+                                                                                      <td class=" py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{ formatDate(guaranty.end) }} </td>
 
                                                                                       </tr>
                                                                                   </tbody>
@@ -609,7 +609,7 @@
 
                                                                                       <tr v-for="projectend in project.projectend" class="divide-x divide-gray-200">
 
-                                                                                      <td class="py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{ projectend.date }} </td>
+                                                                                      <td class="py-2 px-2 text-right text-sm text-gray-500 sm:table-cell"> {{ formatDate(projectend.date) }} </td>
 
                                                                                       <td class=" py-2 px-2 text-right  text-sm text-gray-500 sm:table-cell"> {{ projectend.name }} </td>
 
@@ -686,14 +686,14 @@ export default {
     
     function close() {
       emit('close')
-  }
+    }
 
     return {
       open,
       close,
       project,
       openTab,
-      toggleTabs
+      toggleTabs,
     }
   },
 }

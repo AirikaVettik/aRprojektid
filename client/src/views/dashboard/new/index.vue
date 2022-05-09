@@ -231,7 +231,7 @@
   
 <!-- Etapp -->
     <div>
-        <div v-for="(offer, index) in document.offer" :key="offer.index" class="md:grid md:grid-cols-5">
+        <div v-for="(offer, index) in document.offer" :key="index" class="md:grid md:grid-cols-5">
         <div class="md:col-span-1">
             <div class="px-4 sm:px-0 pt-4 mr-2">
             <h3 class="pb-3 text-lg font-medium leading-6 text-gray-900 ">Etapp</h3>
@@ -241,8 +241,15 @@
         <div class="mt-5 md:mt-0 md:col-span-4">
             <form action="#" method="POST">
             <div class="shadow sm:rounded-md sm:overflow-hidden">
-                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+                <div class="px-4 py-5 bg-white space-y-6 sm:p-6 text-right">
+                  <button @click="removePhase(index)">
+                          <XIcon
+                            class="flex-shrink-0 h-6 w-6 text-gray-400 item-right"
+                            aria-hidden="true"
+                          />
+                        </button>
                 <div>
+
                     <div class="mt-1">
                     <textarea v-model="offer.description" id="design" name="design" rows="10" class="shadow-sm focus:ring-teal-500 focus:border-teal-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="... " />
                     </div>
@@ -997,6 +1004,10 @@ export default {
         document.offer.push({})
     }
 
+    const removePhase= async(index) => {
+        document.offer.splice(index, 1)
+    }
+
     const addLog = async(index) => {
         document.logs.push({})
     }
@@ -1045,6 +1056,7 @@ export default {
       addPlugin,
       addPayment,
       saveDocument,
+      removePhase,
     }
   },
 }

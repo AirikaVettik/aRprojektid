@@ -423,9 +423,8 @@ export default {
   const addPhase = async(index) => {
       newOffer.value.offer.push({})
     }
-  const removePhase= async(index) => {
+  const removePhase = async(index) => {
       newOffer.value.offer.splice(index, 1)
-
   }
 
   async function allUsers() {
